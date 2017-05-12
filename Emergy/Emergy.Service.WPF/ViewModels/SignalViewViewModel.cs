@@ -10,7 +10,7 @@ using Emergy.ServiceWPF.Models;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Windows;
 
-namespace Emergy.ServiceWPF.ViewModels
+namespace Emergy.Service.WPF.ViewModels
 {
     class SignalViewViewModel : INotifyPropertyChanged
     {
