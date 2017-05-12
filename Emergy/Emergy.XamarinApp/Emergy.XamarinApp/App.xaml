@@ -9,8 +9,11 @@
 
         <Style TargetType="Button">
           <Setter Property="FontSize" Value="25"></Setter>
-          <Setter Property="BackgroundColor" Value="Blue"></Setter>
+          <Setter Property="BackgroundColor" Value="Red"></Setter>
 
+        </Style>
+        <Style TargetType="Label">
+          <Setter Property="FontSize" Value="25"></Setter>
         </Style>
       </ResourceDictionary>
     

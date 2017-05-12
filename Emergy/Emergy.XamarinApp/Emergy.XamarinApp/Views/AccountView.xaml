@@ -1,6 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Emergy.XamarinApp.Views.AccountView">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+             x:Class="Emergy.XamarinApp.Views.AccountView"
+             BackgroundColor="#e2dede" Title="Δημιουργία Λογαριασμού" Icon="ic_person_black_24dp.png">
+
+  <ContentPage.Content>
+    <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center" Padding="20" Spacing="2" Margin="5">
+      <Label Text="Όνομα" TextColor="Black"/>
+      <Entry x:Name="NameEntry"/>
+      <Label Text="Επίθετο" TextColor="Black"/>
+      <Entry x:Name="SurNameEntry"/>
+      <Label Text="E-mail" TextColor="Black"/>
+      <Entry x:Name="UsernameEntry" Unfocused="UsernameEntry_OnUnfocused" Focused="UsernameEntry_OnFocused"/>
+      <Label Text="Κωδικός Πρόσβασης" TextColor="Black"/>
+      <Entry x:Name="PasswordEntry" IsPassword="True" Focused="PasswordEntry_OnFocused" Unfocused="PasswordEntry_OnCompleted"/>
+      <Label Text="Επιβεβαίωση" TextColor="Black"/>
+      <Entry x:Name="PasswordCheckEntry" IsPassword="True" WidthRequest="100"/>
+      <Label Text="Ηλικία" TextColor="Black"/>
+      <Entry x:Name="AgeEntry" WidthRequest="100"/>
+      <Button x:Name="CreateButton" Text="Δημιουργία" Clicked="CreateButton_OnClicked"/>
+    </StackLayout>
+  </ContentPage.Content>
+
 </ContentPage>
