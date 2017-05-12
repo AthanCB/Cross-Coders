@@ -5,7 +5,6 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using Emergy.ServiceWPF.Annotations;
 using Emergy.ServiceWPF.Models;
 using Microsoft.WindowsAzure.MobileServices;
 
@@ -33,12 +32,12 @@ namespace Emergy.ServiceWPF.ViewModels
             
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));  
-        }
+	    public event PropertyChangedEventHandler PropertyChanged;
+
+	    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+	    {
+		    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+	    }
     }
 }

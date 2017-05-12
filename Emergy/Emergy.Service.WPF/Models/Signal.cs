@@ -6,7 +6,6 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xaml.Schema;
-using Emergy.ServiceWPF.Annotations;
 
 namespace Emergy.ServiceWPF.Models
 {
@@ -46,12 +45,12 @@ namespace Emergy.ServiceWPF.Models
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+	    public event PropertyChangedEventHandler PropertyChanged;
+
+	    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+	    {
+		    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+	    }
     }
 }
