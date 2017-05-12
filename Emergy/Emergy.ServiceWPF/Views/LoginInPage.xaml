@@ -1,0 +1,20 @@
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Emergy.ServiceWPF.Views"
+        mc:Ignorable="d"
+        Title="EMERGY Window" Height="500" Width="700" Background="#FFF8F3FF" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="LightGray">
+        <Label x:Name="Title" Content="Emergy" Foreground="Black" Height="100" Width="300" FontSize="66" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="229,2,164.6,0"/>
+        
+        <Label x:Name="UsernameLabel" Content="Όνομα Χρήστη:" Width="235" Height="50" FontSize="30" Margin="105,192,368.6,221.4" />
+        <TextBox x:Name="UsernameBox" Background="White" Width="300" Height="50" FontSize="30" Margin="333,192,65.6,228.4"/>
+
+        <Label Content="Κωδικός:" x:Name="PasswordLabel" Width="200" Height="50" FontSize="30" Margin="105,250,388.6,170.4"/>
+        <PasswordBox x:Name="PasswordBox" Background="White" Width="300" Height="50" FontSize="30" Margin="333,250,65.6,171.4"/>
+        
+        <Button Content="Είσοδος" FontSize="30" Background="#FF66114F" Foreground="AntiqueWhite" Height="75" Width="155" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="ButtonBase_OnClick" Margin="272,0,271.6,24.4" />
+    </Grid>
+</Window>
