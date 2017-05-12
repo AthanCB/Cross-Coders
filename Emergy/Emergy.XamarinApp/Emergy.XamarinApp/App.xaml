@@ -4,7 +4,16 @@
              x:Class="Emergy.XamarinApp.App">
 	<Application.Resources>
 
-		<!-- Application resource dictionary -->
+    
+      <ResourceDictionary>
+
+        <Style TargetType="Button">
+          <Setter Property="FontSize" Value="25"></Setter>
+          <Setter Property="BackgroundColor" Value="Blue"></Setter>
+
+        </Style>
+      </ResourceDictionary>
+    
 
 	</Application.Resources>
 </Application>

@@ -13,7 +13,7 @@ namespace Emergy.XamarinApp
         {
             InitializeComponent();
 
-            MainPage = new Emergy.XamarinApp.MainPage();
+            MainPage = new Emergy.XamarinApp.Views.EmergencyView();
         }
 
         protected override void OnStart()
