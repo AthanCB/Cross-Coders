@@ -4,8 +4,8 @@
              xmlns:local="clr-namespace:Emergy.XamarinApp"
              x:Class="Emergy.XamarinApp.MainPage">
 
-  <Label Text="Welcome to Xamarin Forms!"
-           VerticalOptions="Center"
+	<Label Text="Welcome to Xamarin Forms!" 
+           VerticalOptions="Center" 
            HorizontalOptions="Center" />
 
 </ContentPage>

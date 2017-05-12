@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
 
-  <Identity Name="5675356b-2b6b-48f8-b098-3cf5bd90c6d8"
-            Publisher="CN=M7"
+  <Identity Name="0d7caef1-ccbc-47a5-b3eb-0c347d3f3178"
+            Publisher="CN=JS"
             Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="5675356b-2b6b-48f8-b098-3cf5bd90c6d8" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="0d7caef1-ccbc-47a5-b3eb-0c347d3f3178" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Emergy.XamarinApp.WinPhone</DisplayName>
-    <PublisherDisplayName>M7</PublisherDisplayName>
+    <PublisherDisplayName>JS</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
