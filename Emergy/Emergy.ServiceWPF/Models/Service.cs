@@ -5,16 +5,21 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xaml.Schema;
 using Emergy.ServiceWPF.Annotations;
 
 namespace Emergy.ServiceWPF.Models
 {
-    class Signal : INotifyPropertyChanged
+    class Service : INotifyPropertyChanged
     {
         private string _id;
+        private string _serviceName;
+        private string _username;
+        private string _password;
         private double _latitude;
         private double _longitude;
+
+        
+
 
         public string Id
         {
@@ -23,6 +28,36 @@ namespace Emergy.ServiceWPF.Models
             {
                 _id = value;
                 OnPropertyChanged(nameof(Id));
+            }
+        }
+
+        public string SericeName
+        {
+            get { return _serviceName; }
+            set
+            {
+                _serviceName = value;
+                OnPropertyChanged(nameof(SericeName));
+            }
+        }
+
+        public string Username
+        {
+            get { return _username; }
+            set
+            {
+                _username = value;
+                OnPropertyChanged(nameof(Username));
+            }
+        }
+
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                _password = value;
+                OnPropertyChanged(nameof(Password));
             }
         }
 
@@ -45,6 +80,7 @@ namespace Emergy.ServiceWPF.Models
                 OnPropertyChanged(nameof(Lognitude));
             }
         }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
