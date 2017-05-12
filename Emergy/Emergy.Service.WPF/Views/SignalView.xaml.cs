@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace Emergy.Service.WPF.Views
 {
 	/// <summary>
@@ -22,6 +23,21 @@ namespace Emergy.Service.WPF.Views
 		public SignalView()
 		{
 			InitializeComponent();
+		}
+
+		private void Back_OnClickack_Click(object sender, RoutedEventArgs e)
+		{
+			
+		}
+		
+		private void AccidentsList_OnClick(object sender, RoutedEventArgs e)
+		{
+			
+		}
+
+		private void Map_OnClick(object sender, RoutedEventArgs e)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

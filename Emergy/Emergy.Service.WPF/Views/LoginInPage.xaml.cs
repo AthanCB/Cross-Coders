@@ -1,8 +1,9 @@
 ﻿using System.Windows;
+using Emergy.Service.WPF.Views;
 
 namespace Emergy.ServiceWPF.Views
 {
-    /// <summary>
+	/// <summary>
     /// Interaction logic for LoginInPage.xaml
     /// </summary>
     public partial class LoginInPage : Window
@@ -13,8 +14,10 @@ namespace Emergy.ServiceWPF.Views
         }
 
 	    private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-	    {
+	    {		    
+			SignalView signalView = new SignalView();
+			signalView.Show();
 		    this.Hide();
-	    }
+		}
     }
 }

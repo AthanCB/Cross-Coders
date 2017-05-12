@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Emergy.Service.WPF.Views"
         mc:Ignorable="d"
-        Title="SignalView" Height="300" Width="300">
+        Title="SignalView" Height="500" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
-        
+        <Label x:Name="label" Content="Σημεία ατυχημάτων στο χάρτη" FontSize="22" Width="350" Height="50" Margin="74,32,69.6,388.4" />
+        <DockPanel Name="DockPanelMenu"  LastChildFill="False">
+            <Menu BorderBrush="Black" BorderThickness="1" Height="auto" Name="Menu" DockPanel.Dock="Top"  Background="{DynamicResource MaterialDesignBody}"  >
+                <MenuItem Header="Πίσω" x:Name="Back" Foreground="#DDFFFFFF" FontSize="12" Click="Back_OnClickack_Click"/>
+                <MenuItem Header="Χάρτης/Ατυχήματα" x:Name="AccidentsList" Foreground="#DDFFFFFF" FontSize="12" Click="AccidentsList_OnClick"/>
+            </Menu>
+        </DockPanel>
     </Grid>
 </Window>

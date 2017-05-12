@@ -90,6 +90,9 @@
     <Compile Include="Views\LoginInPage.xaml.cs">
       <DependentUpon>LoginInPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SignalView.xaml.cs">
+      <DependentUpon>SignalView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -105,6 +108,10 @@
     <Page Include="Views\LoginInPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SignalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
