@@ -146,8 +146,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Startup.MobileApp.cs" />
+    <Compile Include="Controllers\Signal.cs" />
     <Compile Include="Controllers\TodoItemController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DataObjects\Service.cs" />
+    <Compile Include="DataObjects\ServiceOwn.cs" />
     <Compile Include="DataObjects\Signal.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
     <Compile Include="Models\EmergyContext.cs" />

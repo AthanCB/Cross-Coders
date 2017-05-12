@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Emergy.ServiceWPF.Models
 {
-    class Service : INotifyPropertyChanged
+    public class Service : INotifyPropertyChanged
     {
         private string _id;
         private string _serviceName;

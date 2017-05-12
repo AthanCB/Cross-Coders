@@ -5,8 +5,10 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Emergy.Service.WPF;
 using Emergy.ServiceWPF.Models;
 using Microsoft.WindowsAzure.MobileServices;
+using System.Windows;
 
 namespace Emergy.ServiceWPF.ViewModels
 {
@@ -29,7 +31,7 @@ namespace Emergy.ServiceWPF.ViewModels
 
         public async Task FetchData()
         {
-            
+            Signals = await (Application.Current as App).SyncSignals.ToCollectionAsync();
         }
 
 

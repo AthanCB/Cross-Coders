@@ -9,7 +9,7 @@ using System.Xaml.Schema;
 
 namespace Emergy.ServiceWPF.Models
 {
-    class Signal : INotifyPropertyChanged
+    public class Signal : INotifyPropertyChanged
     {
         private string _id;
         private double _latitude;
