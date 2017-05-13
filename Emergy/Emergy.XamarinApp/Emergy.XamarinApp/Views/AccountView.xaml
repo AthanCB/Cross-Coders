@@ -5,7 +5,8 @@
              BackgroundColor="#e2dede" Title="Δημιουργία Λογαριασμού" Icon="ic_person_black_24dp.png">
 
   <ContentPage.Content>
-    <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center" Padding="20" Spacing="2" Margin="5">
+    <ScrollView>
+    <StackLayout Orientation="Vertical" Padding="20" Margin="5">
       <Label Text="Όνομα" TextColor="Black"/>
       <Entry x:Name="NameEntry"/>
       <Label Text="Επίθετο" TextColor="Black"/>
@@ -18,8 +19,11 @@
       <Entry x:Name="PasswordCheckEntry" IsPassword="True" WidthRequest="100"/>
       <Label Text="Ηλικία" TextColor="Black"/>
       <Entry x:Name="AgeEntry" WidthRequest="100"/>
-      <Button x:Name="CreateButton" Text="Δημιουργία" Clicked="CreateButton_OnClicked"/>
+      <Label Text="Τηλέφωνο" TextColor="Black"/>
+      <Entry x:Name="PhoneEntry" WidthRequest="100"/>
+      <Button BackgroundColor="Red" x:Name="CreateButton" Text="Δημιουργία" TextColor="White" Clicked="CreateButton_OnClicked"/>
     </StackLayout>
+    </ScrollView>
   </ContentPage.Content>
 
 </ContentPage>

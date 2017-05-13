@@ -14,6 +14,7 @@ namespace Emergy.XamarinApp
         public MobileServiceClient Client { get; set; }
         public IMobileServiceTable<Service> SyncServices { get; set; }
         public IMobileServiceTable<Signal> SyncSignals { get; set; }
+        public IMobileServiceTable<User> SyncUsers { get; set; }
 
         public App()
         {
@@ -21,12 +22,21 @@ namespace Emergy.XamarinApp
             MainPage = new MasterDetailPageView();
         }
 
-        protected override void OnStart()
+        protected async override void OnStart()
         {
-            Client = new MobileServiceClient("http://emergy.azurewebsites.net/");
+            Client = new MobileServiceClient("http://localhost:51800/");
            
             SyncSignals = Client.GetTable<Signal>();
             SyncServices = Client.GetTable<Service>();
+            SyncUsers = Client.GetTable<User>();
+            Signal s = new Signal
+            {
+                Id = Guid.NewGuid().ToString("N"),
+                Latitude = 23.33323,
+                Longitude = 32.32323,
+                Own = ServiceOwn.FireDep
+            };
+            await SyncSignals.InsertAsync(s);
         }
 
         protected override void OnSleep()

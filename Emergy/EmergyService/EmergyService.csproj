@@ -198,6 +198,12 @@
     <None Include="Properties\PublishProfiles\Emergy - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\Emergy - Web Deploy.pubxml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Emergy.XamarinApp\Emergy.XamarinApp\Emergy.XamarinApp.csproj">
+      <Project>{2034A654-79AA-4726-8AE0-C3C16318433E}</Project>
+      <Name>Emergy.XamarinApp</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />

@@ -25,6 +25,7 @@ namespace EmergyService.Models
         public DbSet<TodoItem> TodoItems { get; set; }
         public DbSet<Signal> Signals { get; set; }
         public DbSet<Service> Services { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

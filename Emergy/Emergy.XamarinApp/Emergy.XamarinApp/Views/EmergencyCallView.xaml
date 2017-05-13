@@ -9,6 +9,10 @@
         <Button Text="Πυροσβεστική" x:Name="FireDepButton"  Clicked="Button_OnClick"/>
         <Button Text="Αστυνομία" x:Name="PoliceButton" Clicked="Button_OnClick"/>
         <Button Text="Νοσοκομείο" x:Name="HospButton" Clicked="Button_OnClick"/>
+        <StackLayout Orientation="Horizontal">
+          <Button Text="Εγγραφή" BackgroundColor="Transparent" Clicked="Signup_OnClick" TextColor="Black"/>
+          <Button Text="Είσοδος" BackgroundColor="Transparent" TextColor="Black"/>
+        </StackLayout>
       </StackLayout>
       <StackLayout Margin="10" x:Name="LoadingStackLayout" VerticalOptions="Center" IsVisible="False">
         <Label x:Name="LoadingLabel" HorizontalOptions="Center" TextColor="Black"/>

@@ -2,10 +2,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Emergy.XamarinApp.Views.FavoritesView"
+             xmlns:vm="clr-namespace:Emergy.XamarinApp.ViewModels"
              BackgroundColor="#e2dede" Title="Αγαπημενα" Icon="ic_star_black_24dp.png">
-
+  <ContentPage.BindingContext>
+    <vm:UserViewViewModel/>
+  </ContentPage.BindingContext>
   <ContentPage.Content>
-    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="20" Spacing="2" Margin="5">
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
+      <ListView ItemsSource="{Binding Users}">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <TextCell Text="{Binding Username}"/>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
       <Label Text="Όνομα" TextColor="Black"/>
       <Entry x:Name="NameEntry"/>
       <Label Text="Επίθετο" TextColor="Black"/>

@@ -14,6 +14,9 @@ namespace Emergy.XamarinApp.Views
         {
             InitializeComponent();
         }
+
+       
+
         private void UsernameEntry_OnUnfocused(object sender, FocusEventArgs e)
         {
             if (!UsernameEntry.Text.Contains("@"))

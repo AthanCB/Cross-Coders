@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.Azure.Mobile.Server;
 
-namespace emergynetworkService.DataObjects
+namespace EmergyService.DataObjects
 {
     public class User : EntityData
     {

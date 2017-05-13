@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.OData;
-using emergynetworkService.DataObjects;
 using Microsoft.Azure.Mobile.Server;
 using EmergyService.DataObjects;
 using EmergyService.Models;

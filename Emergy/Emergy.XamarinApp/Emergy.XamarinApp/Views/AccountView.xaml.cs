@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emergy.XamarinApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,31 @@ namespace Emergy.XamarinApp.Views
             InitializeComponent();
         }
 
-        private void CreateButton_OnClicked(object sender, EventArgs e)
+        private async void CreateButton_OnClicked(object sender, EventArgs e)
         {
-           
+           /* User user = new Models.User
+            {
+                Id = Guid.NewGuid().ToString("N"),
+                Username = UsernameEntry.Text,
+                Password = PasswordEntry.Text,
+                Email = UsernameEntry.Text,
+                Age = int.Parse(AgeEntry.Text),
+                Name = NameEntry.Text,
+                Surname = SurNameEntry.Text,
+                Phone = int.Parse(PhoneEntry.Text)
+            };*/
+            User user = new Models.User
+            {
+                Id = Guid.NewGuid().ToString("N"),
+                Username = "sdfds",
+                Password = "sdfds",
+                Email = "sdfds",
+                Age = 55,
+                Name = "sdfds",
+                Surname = "sdfds",
+                Phone = 55
+            };
+            await (Application.Current as App).SyncUsers.InsertAsync(user);
 
         }
 
