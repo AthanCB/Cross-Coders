@@ -118,6 +118,11 @@ namespace Emergy.Service.WPF.Views
 		private void AccidentListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 
-		}		
+		}
+
+		private void EditSignal_OnClick(object sender, RoutedEventArgs e)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
