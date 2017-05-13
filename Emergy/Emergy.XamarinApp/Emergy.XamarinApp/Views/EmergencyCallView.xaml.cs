@@ -17,21 +17,22 @@ namespace Emergy.XamarinApp.Views
 
         private async void Button_OnClick(object sender, EventArgs e)
         {
+            ButtonStackLayout.IsVisible = false;
+            LoadingLabel.Text = "Παρακαλώ περιμένετε...";
+            LoadingStackLayout.IsVisible = true;
             Indicator.IsRunning = true;
             Indicator.IsVisible = true;
 
             try
             {
                 var locator = CrossGeolocator.Current;
-
                 locator.DesiredAccuracy = 50;
-
                 var position = await locator.GetPositionAsync(100000);
 
                 lat = position.Latitude;
                 lng = position.Longitude;
 
-                CoordsLabel.Text = "Position Latitude: " + lat + "\nPosition Longitude: " +lng;
+                LoadingLabel.Text = "Αποστολή σήματος κινδύνου...";
 
                 Signal signal = new Signal();
                 signal.Id = Guid.NewGuid().ToString("N");
@@ -39,22 +40,34 @@ namespace Emergy.XamarinApp.Views
                 signal.Longitude = lng;
                 if ((Button)sender == FireDepButton)
                     signal.Own = ServiceOwn.FireDep;
-                else if((Button)sender == HospButton)
+                else if ((Button)sender == HospButton)
                     signal.Own = ServiceOwn.Hospital;
-                else if((Button)sender == PoliceButton)
-                signal.Own = ServiceOwn.Police;
+                else if ((Button)sender == PoliceButton)
+                    signal.Own = ServiceOwn.Police;
                 /*else
                     signal.Own = ServiceOwn.RoadAssist;*/
 
                 await (Application.Current as App).SyncSignals.InsertAsync(signal);
+
+                LoadingStackLayout.IsVisible = false;
+                LoadingLabel.Text = "Παρακαλώ περιμένετε...";
+                Indicator.IsRunning = false;
+                Indicator.IsVisible = false;
+
+                await DisplayAlert("Επιτυχία!", "Το σήμα κινδύνου στάλθηκε επιτυχώς!", "ΟΚ");
+                ButtonStackLayout.IsVisible = true;
             }
             catch (Exception ex)
             {
-                CoordsLabel.Text = "Unable to get address!";
-            }
+                LoadingStackLayout.IsVisible = false;
+                LoadingLabel.Text = "Παρακαλώ περιμένετε...";
+                Indicator.IsRunning = false;
+                Indicator.IsVisible = false;
 
-            Indicator.IsRunning = false;
-            Indicator.IsVisible = false;
+                if (!await DisplayAlert("Αποτυχία!", "Η αποστολή σήματος κινδύνου απέτυχε! Ελέγξτε αν είναι ενεργοποιημένη η τοποθεσίας σας.", "ΟΚ", "Προσπαθήστε ξανά!"))
+                    Button_OnClick(sender, e);
+                ButtonStackLayout.IsVisible = true;
+            }
         }
     }
 }
