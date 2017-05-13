@@ -21,12 +21,12 @@
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
                 <MenuItem Header="Πίσω" x:Name="BackButton" Foreground="#DDFFFFFF" FontSize="12" Click="Back_OnClickack_Click"/>
-                <MenuItem Header="Εμφάνιση Περιεχομένου" FontSize="12" Foreground="#DDFFFFFF" HorizontalAlignment="Center">
+                <MenuItem DockPanel.Dock="Left" Header="Εμφάνιση Περιεχομένου" FontSize="12" Foreground="#DDFFFFFF" HorizontalAlignment="Center">
                     <MenuItem x:Name="AccidentButton" Header="Περιστατικά" Click="Accidents_OnClick" FontSize="12"/>
                     <MenuItem x:Name="MapButton" Header="Χάρτης" Click="Maps_OnClick" IsChecked="True" IsCheckable="True"/>
                 </MenuItem>
                     <MenuItem Header="Επεξεργασία Μονάδας" x:Name="EditDepartment" Foreground="#DDFFFFFF" FontSize="12" Click="EditDepartment_OnClick" HorizontalAlignment="Center"/>
-                    <MenuItem Header="Refresh" x:Name="RefresButton" Foreground="#DDFFFFFF" FontSize="12" Click="RefresButton_OnClick" HorizontalAlignment="Right"/>
+                    <MenuItem Header="Refresh" x:Name="RefresButton" Foreground="#DDFFFFFF" Background="Blue" FontSize="15" Click="RefresButton_OnClick" HorizontalAlignment="Right"/>
                 </Menu>
         </DockPanel>
         </Grid>
@@ -43,6 +43,7 @@
                         <GridViewColumn x:Name="SignalCode" Header="Κωδικός Σήματος" DisplayMemberBinding="{Binding Id}" Width="Auto"/>
                         <GridViewColumn x:Name="Latitude" Header="Γεωγραφικό Πλάτος" DisplayMemberBinding="{Binding Latitude}" Width="Auto"/>
                         <GridViewColumn x:Name="Longtitude" Header="Γεωγραφικό Μήκος" DisplayMemberBinding="{Binding Longitude}" Width="Auto"/>
+                        <GridViewColumn x:Name="Timestamps" Header="Χρόνος συμβάντος" DisplayMemberBinding="{Binding Time}" Width="Auto"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -56,6 +57,7 @@
                         </DataTemplate>
                     </m:MapItemsControl.ItemTemplate>
                 </m:MapItemsControl>
+                <m:Pushpin x:Name="ServiceLocation" Content="ΤΜΗΜΑ" Background="Black" Foreground="White" FontSize="5" Location="37.9795,23.71"/>
             </m:Map>
         </Grid>
     </Grid>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Maps.MapControl.WPF;
 using Newtonsoft.Json;
 
 namespace Emergy.Service.WPF.Models
@@ -17,8 +18,7 @@ namespace Emergy.Service.WPF.Models
         private string _password;
         private double _latitude;
         private double _longitude;
-
-        
+		private Location _serviceLocation;   
 
         [JsonProperty("Id")]
         public string Id
@@ -41,7 +41,17 @@ namespace Emergy.Service.WPF.Models
             }
         }
 
-        public string Username
+	    public Location ServiceLocation
+	    {
+		    get { return _serviceLocation; }
+		    set
+		    {
+			    _serviceLocation= value;
+			    OnPropertyChanged(nameof(ServiceLocation));
+		    }
+	    }
+
+		public string Username
         {
             get { return _username; }
             set

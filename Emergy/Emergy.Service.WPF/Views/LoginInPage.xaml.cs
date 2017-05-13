@@ -24,5 +24,10 @@ namespace Emergy.ServiceWPF.Views
             signalView.Show();
             this.Hide();
 	    }
-    }
+
+	    protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+	    {
+			System.Windows.Application.Current.Shutdown();
+		}
+	}
 }
