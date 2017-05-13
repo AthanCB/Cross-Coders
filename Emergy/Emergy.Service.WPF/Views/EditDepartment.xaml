@@ -1,0 +1,28 @@
+﻿<Window x:Class="Emergy.Service.WPF.Views.EditDepartment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Emergy.Service.WPF.Views"
+        mc:Ignorable="d"
+        Title="ΕΠΕΞΕΡΓΑΣΙΑ ΜΟΝΑΔΑΣ" Height="400" Width="600" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label x:Name="DepartmentInfo"/>
+        <DockPanel Grid.Row="0" Name="DockPanelMenu"  LastChildFill="False">
+            <Menu BorderBrush="Black" BorderThickness="1" Height="auto" Name="Menu" DockPanel.Dock="Top"  Background="{DynamicResource MaterialDesignBody}"  >
+                <MenuItem Header="Πίσω" x:Name="BackButton" Foreground="#DDFFFFFF" FontSize="12" Click="BackButton_OnClick"/>
+            </Menu>
+        </DockPanel>
+        <ListView Name="ProductListView" Margin="0,50,-0.4,50.4" ItemsSource="{Binding }" >
+            <ListView.View>
+                <GridView AllowsColumnReorder="True" >
+                    <GridViewColumn Header="Όνομα" Width="180" DisplayMemberBinding="{Binding }" />
+                    <GridViewColumn Header="Πόλη" Width="150" DisplayMemberBinding="{Binding }" />
+                    <GridViewColumn Header="Διεύθνση" Width="150" DisplayMemberBinding="{Binding }" />
+                    <GridViewColumn Header="ΤΚ" Width="80" DisplayMemberBinding="{Binding }" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="Submit" Content="ΕΠΙΒΕΒΑΙΩΣΗ" Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="Submit_OnClick" Margin="187,0,186.6,12.4" />
+    </Grid>
+</Window>

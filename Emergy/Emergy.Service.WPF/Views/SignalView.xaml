@@ -3,16 +3,38 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         xmlns:local="clr-namespace:Emergy.Service.WPF.Views"
-        mc:Ignorable="d"
-        Title="SignalView" Height="500" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <Grid>
-        <Label x:Name="label" Content="Σημεία ατυχημάτων στο χάρτη" FontSize="22" Width="350" Height="50" Margin="74,32,69.6,388.4" />
-        <DockPanel Name="DockPanelMenu"  LastChildFill="False">
+        xmlns:viewModels="clr-namespace:Emergy.Service.WPF.ViewModels"
+        mc:Ignorable="d"        
+        Title="SignalView" Height="500" Width="700" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+   <Window.DataContext>
+        <viewModels:SignalViewViewModel/>
+   </Window.DataContext>
+    <Grid>  
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="8*" />
+        </Grid.RowDefinitions>
+        <Label x:Name="Label" Content="Σημεία ατυχημάτων στο χάρτη" FontSize="22" Width="350" Height="50" Margin="74,52,69.6,368.4" />
+        <DockPanel Grid.Row="0" Name="DockPanelMenu"  LastChildFill="False">
             <Menu BorderBrush="Black" BorderThickness="1" Height="auto" Name="Menu" DockPanel.Dock="Top"  Background="{DynamicResource MaterialDesignBody}"  >
-                <MenuItem Header="Πίσω" x:Name="Back" Foreground="#DDFFFFFF" FontSize="12" Click="Back_OnClickack_Click"/>
-                <MenuItem Header="Χάρτης/Ατυχήματα" x:Name="AccidentsList" Foreground="#DDFFFFFF" FontSize="12" Click="AccidentsList_OnClick"/>
+                <MenuItem Header="Πίσω" x:Name="BackButton" Foreground="#DDFFFFFF" FontSize="12" Click="Back_OnClickack_Click"/>
+                <MenuItem Header="Εμφάνιση Περιεχομένου" FontSize="12" Foreground="#DDFFFFFF">
+                    <MenuItem Header="Ατυχήματα" Click="Accidents_OnClick" FontSize="12"/>
+                    <MenuItem Header="Χάρτης" Click="Maps_OnClick" IsCheckable="True" IsChecked="True"/>          
+                </MenuItem>
+                <MenuItem Header="Επεξεργασία Μονάδας" x:Name="EditDepartment" Foreground="#DDFFFFFF" FontSize="12" Click="EditDepartment_OnClick"/>
+                <MenuItem Header="Στατιστικά" x:Name="StatisticsButton" Foreground="#DDFFFFFF" FontSize="12" Click="Statistics_OnClick"/>
+                <MenuItem Header="Αναζήτηση" Foreground="#DDFFFFFF" x:Name="Search" FontSize="12" HorizontalAlignment="Right"/>
             </Menu>
         </DockPanel>
+        <Grid Grid.Row="1" x:Name="AccidentsList"/>
+        <TextBlock Grid.Row="1" x:Name="SearchBox" Width="100" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="1" x:Name="SearchBlock" Width="100" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="130,0,0,0"/>
+        <Grid Grid.Row="1" x:Name="Map">
+            <m:Map x:Name="TheMap" CredentialsProvider="Av6IyPOcMfpxBW8cDwOjQGTYs2CSh_KYNbw1lMWt5S-w1mGyXN5Qdbzt7t8Bm2c5"  Center="37.7333,26.77" ZoomLevel="11" AnimationLevel="Full" />
+        </Grid>
+        <Grid Grid.Row="1" x:Name="StatisticsList"/>
     </Grid>
 </Window>
