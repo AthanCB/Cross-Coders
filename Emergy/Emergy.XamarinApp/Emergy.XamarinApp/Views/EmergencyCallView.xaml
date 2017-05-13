@@ -4,16 +4,13 @@
              x:Class="Emergy.XamarinApp.Views.EmergencyCallView"
              xmlns:local="clr-namespace:Emergy.XamarinApp.Views"
              BackgroundColor="#e2dede"  Title="Κληση" Icon="ic_call_black_24dp.png">
-
-  <ContentPage.Content>
+    <ContentPage.Content>
     <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
       <Button Text="Πυροσβεστική" x:Name="FireDepButton" Clicked="Button_OnClick"/>
       <Button Text="Αστυνομία" x:Name="PoliceButton" Clicked="Button_OnClick"/>
       <Button Text="Νοσοκομείο" x:Name="HospButton" Clicked="Button_OnClick"/>
-      <Label x:Name="mpla" VerticalOptions="Center" HorizontalOptions="Center" />
-      <Label x:Name="coordsLabel" VerticalOptions="Center" HorizontalOptions="Center" />
+      <Label x:Name="CoordsLabel" VerticalOptions="Center" HorizontalOptions="Center" />
       <ActivityIndicator x:Name="Indicator" Color="Black"/>
-
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>
