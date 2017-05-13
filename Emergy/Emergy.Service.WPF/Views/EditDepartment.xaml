@@ -18,11 +18,10 @@
             <ListView.View>
                 <GridView AllowsColumnReorder="True" >
                     <GridViewColumn Header="Όνομα Τοποθεσίας" x:Name="LocationName" Width="150" DisplayMemberBinding="{Binding Location}" />
-                    <GridViewColumn Header="Όνομα Χρήστη" x:Name="UserName" Width="150" DisplayMemberBinding="{Binding }" />
+                    <GridViewColumn Header="Όνομα" x:Name="UserName" Width="150" DisplayMemberBinding="{Binding }" />
                     <GridViewColumn Header="ID" x:Name="Id" Width="50" DisplayMemberBinding="{Binding }" />
-                    <GridViewColumn Header="Κωδικός" x:Name="PassWord" Width="100" DisplayMemberBinding="{Binding }" />
-                    <GridViewColumn Header="Γεωγραφικό Πλάτος" x:Name="Latitude" Width="150" DisplayMemberBinding="{Binding }" />
-                    <GridViewColumn Header="Γεωγραφικό Μήκος" x:Name="Longitude" Width="1050" DisplayMemberBinding="{Binding }" />
+                    <GridViewColumn Header="Γεωγραφικό Πλάτος" x:Name="Latitude" Width="155" DisplayMemberBinding="{Binding }" />
+                    <GridViewColumn Header="Γεωγραφικό Μήκος" x:Name="Longitude" Width="150" DisplayMemberBinding="{Binding }" />
                 </GridView>
             </ListView.View>
         </ListView>
