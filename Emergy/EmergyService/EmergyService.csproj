@@ -168,6 +168,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\Emergy - FTP %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Emergy - FTP %285%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Emergy - Web Deploy %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Emergy - Web Deploy %285%29.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
