@@ -9,6 +9,7 @@
 
         <Style TargetType="Button">
           <Setter Property="FontSize" Value="25"></Setter>
+          <Setter Property="TextColor" Value="White"></Setter>
           <Setter Property="BackgroundColor" Value="Red"></Setter>
 
         </Style>

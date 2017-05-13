@@ -5,12 +5,17 @@
              xmlns:local="clr-namespace:Emergy.XamarinApp.Views"
              BackgroundColor="#e2dede"  Title="Κληση" Icon="ic_call_black_24dp.png">
     <ContentPage.Content>
+      <StackLayout VerticalOptions="Center">
     <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-      <Button Text="Πυροσβεστική" x:Name="FireDepButton" Clicked="Button_OnClick"/>
+      <Button Text="Πυροσβεστική" x:Name="FireDepButton"  Clicked="Button_OnClick"/>
       <Button Text="Αστυνομία" x:Name="PoliceButton" Clicked="Button_OnClick"/>
       <Button Text="Νοσοκομείο" x:Name="HospButton" Clicked="Button_OnClick"/>
+      
+    </StackLayout>
+      <StackLayout HorizontalOptions="Center" VerticalOptions="End">
       <Label x:Name="CoordsLabel" VerticalOptions="Center" HorizontalOptions="Center" />
       <ActivityIndicator x:Name="Indicator" Color="Black"/>
-    </StackLayout>
+      </StackLayout>
+      </StackLayout>
   </ContentPage.Content>
 </ContentPage>
