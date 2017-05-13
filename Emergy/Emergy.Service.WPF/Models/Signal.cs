@@ -6,15 +6,18 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xaml.Schema;
+using Newtonsoft.Json;
 
-namespace Emergy.ServiceWPF.Models
+namespace Emergy.Service.WPF.Models
 {
     public class Signal : INotifyPropertyChanged
     {
         private string _id;
         private double _latitude;
         private double _longitude;
+        private ServiceOwn _own;
 
+        [JsonProperty("Id")]
         public string Id
         {
             get { return _id; }
@@ -45,8 +48,18 @@ namespace Emergy.ServiceWPF.Models
             }
         }
 
+        public ServiceOwn Own
+        {
+            get { return _own; }
+            set
+            {
+                _own = value;
+                OnPropertyChanged(nameof(Own));
+            }
+        }
 
-	    public event PropertyChangedEventHandler PropertyChanged;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
 	    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
 	    {

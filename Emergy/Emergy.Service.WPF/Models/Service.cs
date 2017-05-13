@@ -5,8 +5,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace Emergy.ServiceWPF.Models
+namespace Emergy.Service.WPF.Models
 {
     public class Service : INotifyPropertyChanged
     {
@@ -19,7 +20,7 @@ namespace Emergy.ServiceWPF.Models
 
         
 
-
+        [JsonProperty("Id")]
         public string Id
         {
             get { return _id; }
@@ -30,13 +31,13 @@ namespace Emergy.ServiceWPF.Models
             }
         }
 
-        public string SericeName
+        public string ServiceName
         {
             get { return _serviceName; }
             set
             {
                 _serviceName = value;
-                OnPropertyChanged(nameof(SericeName));
+                OnPropertyChanged(nameof(ServiceName));
             }
         }
 

@@ -6,9 +6,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Emergy.Service.WPF;
-using Emergy.ServiceWPF.Models;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Windows;
+using Emergy.Service.WPF.Models;
 
 namespace Emergy.Service.WPF.ViewModels
 {

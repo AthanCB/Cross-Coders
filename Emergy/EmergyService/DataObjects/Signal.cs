@@ -11,5 +11,6 @@ namespace EmergyService.DataObjects
     {
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+        public ServiceOwn Own { get; set; }
     }
 }

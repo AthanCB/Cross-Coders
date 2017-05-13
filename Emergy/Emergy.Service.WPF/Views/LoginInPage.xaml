@@ -15,7 +15,7 @@
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="362,219,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="150"/>
         <Label x:Name="label" Content="Όνομα Χρήστη:" HorizontalAlignment="Left" Margin="242,190,0,0" VerticalAlignment="Top" Height="26" Width="94"/>
         <Label x:Name="label1" Content="Κωδικός Πρόσβασης:" HorizontalAlignment="Left" Margin="211,219,0,0" VerticalAlignment="Top" Height="26" Width="125"/>
-        <Button x:Name="Login_button" Content="Είσοδος" HorizontalAlignment="Left" Margin="362,260,0,0" VerticalAlignment="Top" Width="87"/>
+        <Button x:Name="Login_button" Click="ButtonBase_OnClick" Content="Είσοδος" HorizontalAlignment="Left" Margin="362,260,0,0" VerticalAlignment="Top" Width="87"/>
         <Label x:Name="label2"   Content="Emergy" HorizontalAlignment="Left" Margin="303,32,0,0" VerticalAlignment="Top" Width="239" FontSize="66.667" Height="102"/>
 
     </Grid>
