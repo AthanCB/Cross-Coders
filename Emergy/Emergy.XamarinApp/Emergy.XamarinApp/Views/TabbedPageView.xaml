@@ -7,7 +7,6 @@
 
   <local:EmergencyCallView />
   <local:FavoritesView />
-  <local:MapView />
   <local:AccountView />
 
 

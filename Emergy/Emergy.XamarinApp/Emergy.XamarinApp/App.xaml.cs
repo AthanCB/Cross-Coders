@@ -23,10 +23,10 @@ namespace Emergy.XamarinApp
 
         protected override void OnStart()
         {
-//            Client = new MobileServiceClient("http://emergy.azurewebsites.net/");
-//           
-//            SyncSignals = Client.GetTable<Signal>();
-//            SyncServices = Client.GetTable<Service>();
+            Client = new MobileServiceClient("http://emergy.azurewebsites.net/");
+           
+            SyncSignals = Client.GetTable<Signal>();
+            SyncServices = Client.GetTable<Service>();
         }
 
         protected override void OnSleep()
