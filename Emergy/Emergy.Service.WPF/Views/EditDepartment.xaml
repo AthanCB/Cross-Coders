@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:Emergy.Service.WPF.Views"
         xmlns:viewModels="clr-namespace:Emergy.Service.WPF.ViewModels"
         mc:Ignorable="d"
-        Title="Επεξαργασία Μονάδας" Height="400" Width="750" WindowStartupLocation="CenterScreen">
+        Title="Επεξαργασία Μονάδας" Height="250" Width="500" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <viewModels:ServiceViewViewModel/>
+    </Window.DataContext>
     <Grid>
         <Label x:Name="DepartmentInfo"/>
         <DockPanel Grid.Row="0" Name="DockPanelMenu"  LastChildFill="False">
@@ -17,11 +20,9 @@
         <ListView Name="ProductListView" Margin="0,50,-0.4,50.4" ItemsSource="{Binding }" >
             <ListView.View>
                 <GridView AllowsColumnReorder="True" >
-                    <GridViewColumn Header="Όνομα Τοποθεσίας" x:Name="LocationName" Width="150" DisplayMemberBinding="{Binding Location}" />
-                    <GridViewColumn Header="Όνομα" x:Name="UserName" Width="150" DisplayMemberBinding="{Binding }" />
-                    <GridViewColumn Header="ID" x:Name="Id" Width="50" DisplayMemberBinding="{Binding }" />
-                    <GridViewColumn Header="Γεωγραφικό Πλάτος" x:Name="Latitude" Width="155" DisplayMemberBinding="{Binding }" />
-                    <GridViewColumn Header="Γεωγραφικό Μήκος" x:Name="Longitude" Width="150" DisplayMemberBinding="{Binding }" />
+                    <GridViewColumn Header="Όνομα Τοποθεσίας" x:Name="LocationName" Width="200" DisplayMemberBinding="{Binding Location}" />
+                    <GridViewColumn Header="ID" x:Name="Id" Width="100" DisplayMemberBinding="{Binding }" />
+                    <GridViewColumn Header="Τοποθεσία" x:Name="Location" Width="200" DisplayMemberBinding="{Binding }" />
                 </GridView>
             </ListView.View>
         </ListView>

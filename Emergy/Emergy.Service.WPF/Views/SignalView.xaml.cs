@@ -13,7 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Emergy.ServiceWPF.Views;
 using System.ComponentModel;
+using Emergy.Service.WPF.Models;
 using Emergy.Service.WPF.ViewModels;
+using Microsoft.Maps.MapControl.WPF;
 using Microsoft.WindowsAzure.MobileServices;
 
 namespace Emergy.Service.WPF.Views
@@ -115,14 +117,11 @@ namespace Emergy.Service.WPF.Views
 			}
 		}
 
-		private void AccidentListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		private void FindAccidentLocation(object sender, MouseButtonEventArgs e)
 		{
-
-		}
-
-		private void EditSignal_OnClick(object sender, RoutedEventArgs e)
-		{
-			throw new NotImplementedException();
+			Location location = ((Pushpin)sender).Location;
+			var result = MessageBox.Show("Τοποθεσία συμβάντος: "+ location, "Εύρεση τοποθεσίας",
+				MessageBoxButton.OK, MessageBoxImage.Information);
 		}
 	}
 }

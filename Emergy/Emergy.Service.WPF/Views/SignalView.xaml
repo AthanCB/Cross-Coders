@@ -30,12 +30,11 @@
         </DockPanel>
         </Grid>
         <Grid x:Name="AccidentsList" Visibility="Hidden">
-            <ListView x:Name="AccidentListView" HorizontalAlignment="Left" Width="Auto" Height="Auto" VerticalAlignment="Top" ItemsSource="{Binding Signals}" SelectionChanged="AccidentListView_SelectionChanged" Margin="0,50,0,0">
+            <ListView x:Name="AccidentListView" HorizontalAlignment="Left" Width="Auto" Height="Auto" VerticalAlignment="Top" ItemsSource="{Binding Signals}" Margin="0,50,0,0">
                 <ListView.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Διαγραφή" x:Name="DeleteSignal" Click="DeleteSignal_OnClick"/>
-                        <MenuItem Header="Διαγραφή όλων" x:Name="DeleteAllSignals" Click="DeleteAllSignals_OnClick"/>
-                        <MenuItem Header="Επεξεργασία" x:Name="EditSignal" Click="EditSignal_OnClick"/>
+                        <MenuItem Header="Ολοκλήρωση" x:Name="DeleteSignal" Click="DeleteSignal_OnClick"/>
+                        <MenuItem Header="Ολοκλήρωση όλων" x:Name="DeleteAllSignals" Click="DeleteAllSignals_OnClick"/>
                     </ContextMenu>
                 </ListView.ContextMenu>
                 <ListView.View>
@@ -52,7 +51,7 @@
                 <m:MapItemsControl ItemsSource="{Binding Signals}">
                     <m:MapItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <m:Pushpin Location="{Binding Location}"/>
+                            <m:Pushpin x:Name="AccidentLocation" Location="{Binding Location}" MouseDoubleClick="FindAccidentLocation"/>
                         </DataTemplate>
                     </m:MapItemsControl.ItemTemplate>
                 </m:MapItemsControl>
