@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace Emergy.XamarinApp.Views
 {
-    public partial class EmergencyView : TabbedPage
+    public partial class TabbedPageView : TabbedPage
     {
-        public EmergencyView()
+        public TabbedPageView()
         {
             InitializeComponent();
         }
