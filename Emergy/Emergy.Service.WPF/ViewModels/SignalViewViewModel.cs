@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -9,6 +10,7 @@ using Emergy.Service.WPF;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Windows;
 using Emergy.Service.WPF.Models;
+using Microsoft.AspNet.SignalR.Client;
 using Microsoft.Maps.MapControl.WPF;
 
 namespace Emergy.Service.WPF.ViewModels
@@ -17,10 +19,7 @@ namespace Emergy.Service.WPF.ViewModels
     {
         private MobileServiceCollection<Signal, Signal> _signals;
 
-	    public SignalViewViewModel()
-	    {
-		    FetchData();
-	    }
+	    
 
         public MobileServiceCollection<Signal, Signal> Signals
         {
@@ -33,6 +32,30 @@ namespace Emergy.Service.WPF.ViewModels
                 _signals = value;
                 OnPropertyChanged(nameof(Signals));
             }
+        }
+
+        private HubConnection SignalHubConnection { get; set; }
+        private IHubProxy SignalHubProxy { get; set; }
+
+
+        public SignalViewViewModel()
+        {
+           
+            SignalHubConnection = new HubConnection("http://localhost:51800/");
+
+            SignalHubProxy = SignalHubConnection.CreateHubProxy("SignalHub");
+
+            SignalHubProxy.On("RefreshSignals", OnRefreshSignalsHandler);
+
+            SignalHubConnection.Start().ContinueWith(x => Debug.WriteLine("Conn done"));
+
+           
+        }
+
+       
+        private async void OnRefreshSignalsHandler()
+        {
+            await FetchData();
         }
 
         public async Task FetchData()

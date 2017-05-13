@@ -5,7 +5,9 @@ using System.Web.Http.Controllers;
 using System.Web.Http.OData;
 using Microsoft.Azure.Mobile.Server;
 using EmergyService.DataObjects;
+using EmergyService.Hubs;
 using EmergyService.Models;
+using Microsoft.AspNet.SignalR;
 
 namespace EmergyService.Controllers
 {
@@ -37,9 +39,13 @@ namespace EmergyService.Controllers
         }
 
         // POST tables/TodoItem
-        public async Task<IHttpActionResult> PostTodoItem(Service item)
+        public async Task<IHttpActionResult> PostService(Service item)
         {
             Service current = await InsertAsync(item);
+            var context = GlobalHost.ConnectionManager.GetHubContext<SignalHub>();
+
+            context.Clients.All.RefreshServices();
+
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
