@@ -56,7 +56,9 @@
                         </DataTemplate>
                     </m:MapItemsControl.ItemTemplate>
                 </m:MapItemsControl>
+                <m:Pushpin x:Name="ServiceLocation" Location="37.9795,23.71" Foreground="White" Background="Black" FontSize="6"/>
             </m:Map>
         </Grid>
     </Grid>
 </Window>
+    
