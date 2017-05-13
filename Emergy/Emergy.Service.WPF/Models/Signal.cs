@@ -38,13 +38,13 @@ namespace Emergy.Service.WPF.Models
             }
         }
 
-        public double Lognitude
+        public double Longitude
         {
             get { return _longitude; }
             set
             {
                 _longitude = value;
-                OnPropertyChanged(nameof(Lognitude));
+                OnPropertyChanged(nameof(Longitude));
             }
         }
 

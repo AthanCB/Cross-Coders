@@ -22,12 +22,11 @@ namespace Emergy.Service.WPF
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            Client = new MobileServiceClient("http://localhost:51800/");
+            Client = new MobileServiceClient("http://emergy.azurewebsites.net/");
            
             SyncSignals = Client.GetTable<Signal>();
-           
-
-
+            SyncServices = Client.GetTable<Models.Service>();
+       
         }
     }
 }
