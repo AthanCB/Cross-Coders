@@ -3,5 +3,5 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Emergy.XamarinApp.Views.MapView"
              BackgroundColor="#e2dede" Title="Χαρτης" Icon="ic_add_location_black_24dp.png">
-  <Label Text="Χαρτης"></Label>
+  <Label Text="Χάρτης"></Label>
 </ContentPage>

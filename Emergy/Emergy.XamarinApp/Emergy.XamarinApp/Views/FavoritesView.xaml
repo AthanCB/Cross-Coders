@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Emergy.XamarinApp.Views.FavoritesView"
+             BackgroundColor="#e2dede" Title="Αγαπημενα" Icon="ic_star_black_24dp.png">
+
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="20" Spacing="2" Margin="5">
+      <Label Text="Όνομα" TextColor="Black"/>
+      <Entry x:Name="NameEntry"/>
+      <Label Text="Επίθετο" TextColor="Black"/>
+      <Entry x:Name="SurNameEntry"/>
+      <Label Text="E-mail" TextColor="Black"/>
+      <Entry x:Name="UsernameEntry" Unfocused="UsernameEntry_OnUnfocused" Focused="UsernameEntry_OnFocused"/>
+      <Button Text="Πρόσθεσε"/>
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
