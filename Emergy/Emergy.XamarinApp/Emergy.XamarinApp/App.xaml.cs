@@ -18,7 +18,7 @@ namespace Emergy.XamarinApp
         public App()
         {
             InitializeComponent();
-            MainPage = new TabbedPageView();
+            MainPage = new MasterDetailPageView();
         }
 
         protected override void OnStart()

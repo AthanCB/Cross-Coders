@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Emergy.XamarinApp.Views.TabbedPageView"
              xmlns:local="clr-namespace:Emergy.XamarinApp.Views"
-             BackgroundColor="#e2dede">
+             BackgroundColor="#e2dede" Title="Emergy">
 
   <local:EmergencyCallView />
   <local:FavoritesView />
-  <local:AccountView />
+  <local:MapsView />
+  
 
 
 
