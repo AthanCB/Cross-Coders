@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Emergy.Service.WPF.Views"
+        xmlns:viewModels="clr-namespace:Emergy.Service.WPF.ViewModels"
         mc:Ignorable="d"
-        Title="ΕΠΕΞΕΡΓΑΣΙΑ ΜΟΝΑΔΑΣ" Height="400" Width="600" WindowStartupLocation="CenterScreen">
+        Title="Επεξαργασία Μονάδας" Height="400" Width="750" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label x:Name="DepartmentInfo"/>
         <DockPanel Grid.Row="0" Name="DockPanelMenu"  LastChildFill="False">
@@ -16,10 +17,12 @@
         <ListView Name="ProductListView" Margin="0,50,-0.4,50.4" ItemsSource="{Binding }" >
             <ListView.View>
                 <GridView AllowsColumnReorder="True" >
-                    <GridViewColumn Header="Όνομα" Width="180" DisplayMemberBinding="{Binding }" />
-                    <GridViewColumn Header="Πόλη" Width="150" DisplayMemberBinding="{Binding }" />
-                    <GridViewColumn Header="Διεύθνση" Width="150" DisplayMemberBinding="{Binding }" />
-                    <GridViewColumn Header="ΤΚ" Width="80" DisplayMemberBinding="{Binding }" />
+                    <GridViewColumn Header="Όνομα Τοποθεσίας" x:Name="LocationName" Width="150" DisplayMemberBinding="{Binding Location}" />
+                    <GridViewColumn Header="Όνομα Χρήστη" x:Name="UserName" Width="150" DisplayMemberBinding="{Binding }" />
+                    <GridViewColumn Header="ID" x:Name="Id" Width="50" DisplayMemberBinding="{Binding }" />
+                    <GridViewColumn Header="Κωδικός" x:Name="PassWord" Width="100" DisplayMemberBinding="{Binding }" />
+                    <GridViewColumn Header="Γεωγραφικό Πλάτος" x:Name="Latitude" Width="150" DisplayMemberBinding="{Binding }" />
+                    <GridViewColumn Header="Γεωγραφικό Μήκος" x:Name="Longitude" Width="1050" DisplayMemberBinding="{Binding }" />
                 </GridView>
             </ListView.View>
         </ListView>

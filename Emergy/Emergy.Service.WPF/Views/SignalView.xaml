@@ -7,34 +7,56 @@
         xmlns:local="clr-namespace:Emergy.Service.WPF.Views"
         xmlns:viewModels="clr-namespace:Emergy.Service.WPF.ViewModels"
         mc:Ignorable="d"        
-        Title="SignalView" Height="500" Width="700" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-   <Window.DataContext>
+        Title="SignalView" Height="800" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.DataContext>
         <viewModels:SignalViewViewModel/>
-   </Window.DataContext>
-    <Grid>  
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="8*" />
-        </Grid.RowDefinitions>
-        <Label x:Name="Label" Content="Σημεία ατυχημάτων στο χάρτη" FontSize="22" Width="350" Height="50" Margin="74,52,69.6,368.4" />
-        <DockPanel Grid.Row="0" Name="DockPanelMenu"  LastChildFill="False">
-            <Menu BorderBrush="Black" BorderThickness="1" Height="auto" Name="Menu" DockPanel.Dock="Top"  Background="{DynamicResource MaterialDesignBody}"  >
+    </Window.DataContext>
+    <Grid>
+        <Grid>
+            <DockPanel Name="DockPanelMenu" LastChildFill="False" Margin="0,0,3.6,0.4">
+                <Menu BorderBrush="Black" BorderThickness="1" Height="auto" Name="Menu" DockPanel.Dock="Top"  Background="{DynamicResource MaterialDesignBody}">
+                <Menu.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <DockPanel HorizontalAlignment="Stretch"/>
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
                 <MenuItem Header="Πίσω" x:Name="BackButton" Foreground="#DDFFFFFF" FontSize="12" Click="Back_OnClickack_Click"/>
-                <MenuItem Header="Εμφάνιση Περιεχομένου" FontSize="12" Foreground="#DDFFFFFF">
-                    <MenuItem Header="Ατυχήματα" Click="Accidents_OnClick" FontSize="12"/>
-                    <MenuItem Header="Χάρτης" Click="Maps_OnClick" IsCheckable="True" IsChecked="True"/>          
+                <MenuItem Header="Εμφάνιση Περιεχομένου" FontSize="12" Foreground="#DDFFFFFF" HorizontalAlignment="Center">
+                    <MenuItem x:Name="AccidentButton" Header="Περιστατικά" Click="Accidents_OnClick" FontSize="12"/>
+                    <MenuItem x:Name="MapButton" Header="Χάρτης" Click="Maps_OnClick" IsChecked="True" IsCheckable="True"/>
                 </MenuItem>
-                <MenuItem Header="Επεξεργασία Μονάδας" x:Name="EditDepartment" Foreground="#DDFFFFFF" FontSize="12" Click="EditDepartment_OnClick"/>
-                <MenuItem Header="Στατιστικά" x:Name="StatisticsButton" Foreground="#DDFFFFFF" FontSize="12" Click="Statistics_OnClick"/>
-                <MenuItem Header="Αναζήτηση" Foreground="#DDFFFFFF" x:Name="Search" FontSize="12" HorizontalAlignment="Right"/>
-            </Menu>
+                    <MenuItem Header="Επεξεργασία Μονάδας" x:Name="EditDepartment" Foreground="#DDFFFFFF" FontSize="12" Click="EditDepartment_OnClick" HorizontalAlignment="Center"/>
+                    <MenuItem Header="Refresh" x:Name="RefresButton" Foreground="#DDFFFFFF" FontSize="12" Click="RefresButton_OnClick" HorizontalAlignment="Right"/>
+                </Menu>
         </DockPanel>
-        <Grid Grid.Row="1" x:Name="AccidentsList"/>
-        <TextBlock Grid.Row="1" x:Name="SearchBox" Width="100" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="1" x:Name="SearchBlock" Width="100" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="130,0,0,0"/>
-        <Grid Grid.Row="1" x:Name="Map">
-            <m:Map x:Name="TheMap" CredentialsProvider="Av6IyPOcMfpxBW8cDwOjQGTYs2CSh_KYNbw1lMWt5S-w1mGyXN5Qdbzt7t8Bm2c5"  Center="37.7333,26.77" ZoomLevel="11" AnimationLevel="Full" />
         </Grid>
-        <Grid Grid.Row="1" x:Name="StatisticsList"/>
+        <Grid x:Name="AccidentsList" Visibility="Hidden">
+            <ListView x:Name="AccidentListView" HorizontalAlignment="Left" Width="Auto" Height="Auto" VerticalAlignment="Top" ItemsSource="{Binding Signals}" SelectionChanged="AccidentListView_SelectionChanged" Margin="0,50,0,0">
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Διαγραφή" x:Name="DeleteSignal" Click="DeleteSignal_OnClick"/>
+                        <MenuItem Header="Διαγραφή όλων" x:Name="EditSignal" Click="DeleteAllSignals_OnClick"/>
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn x:Name="SignalCode" Header="Κωδικός Σήματος" DisplayMemberBinding="{Binding Id}" Width="Auto"/>
+                        <GridViewColumn x:Name="Latitude" Header="Γεωγραφικό Πλάτος" DisplayMemberBinding="{Binding Latitude}" Width="Auto"/>
+                        <GridViewColumn x:Name="Longtitude" Header="Γεωγραφικό Μήκος" DisplayMemberBinding="{Binding Longitude}" Width="Auto"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid x:Name="Map" Visibility="Visible">
+            <m:Map x:Name="TheMap" Mode="Road" Heading="0" CredentialsProvider="Av6IyPOcMfpxBW8cDwOjQGTYs2CSh_KYNbw1lMWt5S-w1mGyXN5Qdbzt7t8Bm2c5" Center="37.9795,23.71" ZoomLevel="10" AnimationLevel="Full" Margin="0,50,-0.4,0.4">
+                <m:MapItemsControl ItemsSource="{Binding Signals}">
+                    <m:MapItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <m:Pushpin Location="{Binding Location}"/>
+                        </DataTemplate>
+                    </m:MapItemsControl.ItemTemplate>
+                </m:MapItemsControl>
+            </m:Map>
+        </Grid>
     </Grid>
 </Window>

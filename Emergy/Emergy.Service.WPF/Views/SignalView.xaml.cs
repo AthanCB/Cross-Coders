@@ -29,11 +29,11 @@ namespace Emergy.Service.WPF.Views
 			InitializeComponent();			
 		}
 
-		public async override void EndInit()
-		{
-			base.EndInit();
-			var list = await  (Application.Current as App).SyncSignals.ToCollectionAsync();
-		}
+		//public async override void EndInit()
+		//{
+		//	base.EndInit();
+		//	var list = await  (Application.Current as App).SyncSignals.ToCollectionAsync();
+		//}
 
 		private void Back_OnClickack_Click(object sender, RoutedEventArgs e)
 		{			
@@ -44,23 +44,52 @@ namespace Emergy.Service.WPF.Views
 
 		private void Accidents_OnClick(object sender, RoutedEventArgs e)
 		{
+			AccidentButton.IsCheckable = true;
+			AccidentButton.IsChecked= true;
+			MapButton.IsChecked = false;
+			MapButton.IsCheckable= false;
 			AccidentsList.Visibility = Visibility.Visible;
-			StatisticsList.Visibility = Visibility.Hidden;
 			Map.Visibility = Visibility.Hidden;
-		}
-
-		private void Statistics_OnClick(object sender, RoutedEventArgs e)
-		{
-			AccidentsList.Visibility = Visibility.Hidden;
-			Map.Visibility = Visibility.Hidden;
-			StatisticsList.Visibility = Visibility.Visible;
-		}
+		}		
 
 		private void Maps_OnClick(object sender, RoutedEventArgs e)
 		{
+			AccidentButton.IsCheckable = false;
+			AccidentButton.IsChecked = false;
+			MapButton.IsChecked = true;
+			MapButton.IsCheckable= true;
 			AccidentsList.Visibility = Visibility.Hidden;
 			Map.Visibility = Visibility.Visible;
-			StatisticsList.Visibility = Visibility.Hidden;
+		}
+
+		private void RefresButton_OnClick(object sender, RoutedEventArgs e)
+		{
+			this.Close();
+			SignalView signalView = new SignalView();
+			signalView.Show();
+		}
+
+		private async void DeleteAllSignals_OnClick(object sender, RoutedEventArgs e)
+		{
+			var result = MessageBox.Show("θέλετε να διαγράψετε όλα τα γεγονότα;", "Διαγραφή γεγονότων",
+				MessageBoxButton.YesNo, MessageBoxImage.Question);
+			if (result == MessageBoxResult.Yes)
+			{
+				//changes = true;
+				foreach (var item in ((SignalViewViewModel)this.DataContext).Signals)
+				{
+					await(Application.Current as App).SyncSignals.DeleteAsync(item);
+
+				}
+				((SignalViewViewModel)this.DataContext).Signals.Clear();				
+			}
+		}
+
+		private async void DeleteSignal_OnClick(object sender, RoutedEventArgs e)
+		{
+			var tempSignal = (Models.Signal)(AccidentListView.SelectedItem);
+			await(Application.Current as App).SyncSignals.DeleteAsync(tempSignal);
+			((SignalViewViewModel)this.DataContext).Signals.Remove(tempSignal);
 		}
 
 		private void EditDepartment_OnClick(object sender, RoutedEventArgs e)
@@ -81,6 +110,10 @@ namespace Emergy.Service.WPF.Views
 				
 			}
 		}
-		
+
+		private void AccidentListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+
+		}		
 	}
 }

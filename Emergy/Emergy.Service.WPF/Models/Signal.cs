@@ -5,7 +5,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Xaml.Schema;
+using Microsoft.Maps.MapControl.WPF;
 using Newtonsoft.Json;
 
 namespace Emergy.Service.WPF.Models
@@ -15,6 +17,9 @@ namespace Emergy.Service.WPF.Models
         private string _id;
         private double _latitude;
         private double _longitude;
+	    //private Point p;
+	    private Location _location;
+
         private ServiceOwn _own;
 
         [JsonProperty("Id")]
@@ -27,6 +32,16 @@ namespace Emergy.Service.WPF.Models
                 OnPropertyChanged(nameof(Id));
             }
         }
+
+	    public Location Location
+	    {
+			get { return _location; }
+		    set
+		    {
+			    _location = value;
+				OnPropertyChanged(nameof(Location));
+			}		    
+		}
 
         public double Latitude
         {

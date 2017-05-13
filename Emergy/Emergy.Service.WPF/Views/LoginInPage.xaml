@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Emergy.ServiceWPF.Views"
         mc:Ignorable="d"
-        Title="Orderify Server" Height="432" Width="815" Background="#FFF8F3FF"
+        Title="Emergy Server" Height="432" Width="815" Background="#FFF8F3FF"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 
 
