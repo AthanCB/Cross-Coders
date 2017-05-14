@@ -1,7 +1,7 @@
 ﻿using Plugin.Geolocator;
 using System;
 using System.Diagnostics;
-using Emergy.Service.WPF.Models;
+
 using Emergy.XamarinApp.Models;
 using Xamarin.Forms;
 
@@ -43,8 +43,8 @@ namespace Emergy.XamarinApp.Views
 
                 Signal signal = new Signal();
                 signal.Id = Guid.NewGuid().ToString("N");
-                signal.Latitude = lat;
-                signal.Longitude = lng;
+                signal.Latitude = 40.76722;
+                signal.Longitude = 22.15194;
                 signal.Types = HospSignalTypes.Simple;
                 if ((Button)sender == FireDepButton)
                     signal.Own = ServiceOwn.FireDep;

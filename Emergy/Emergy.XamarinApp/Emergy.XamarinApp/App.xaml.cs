@@ -12,7 +12,7 @@ namespace Emergy.XamarinApp
     public partial class App : Application
     {
         public MobileServiceClient Client { get; set; }
-        public IMobileServiceTable<Service> SyncServices { get; set; }
+        public IMobileServiceTable<Models.Service> SyncServices { get; set; }
         public IMobileServiceTable<Signal> SyncSignals { get; set; }
         public IMobileServiceTable<User> SyncUsers { get; set; }
         public User user;
@@ -26,7 +26,7 @@ namespace Emergy.XamarinApp
         {
             Client = new MobileServiceClient("http://emergy.azurewebsites.net/");
             SyncSignals = Client.GetTable<Signal>();
-            SyncServices = Client.GetTable<Service>();
+            SyncServices = Client.GetTable<Models.Service>();
             SyncUsers = Client.GetTable<User>();
             var list = await SyncUsers.ToCollectionAsync();
 
