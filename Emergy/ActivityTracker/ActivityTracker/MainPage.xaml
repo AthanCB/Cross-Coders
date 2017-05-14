@@ -17,7 +17,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
           </Grid.ColumnDefinitions>
-          <Button x:Name="Plus" Grid.Column="0" Text="+" Clicked="Plus_OnClicked" FontSize="40"/>
+          <Button Grid.Column="0" Text="+" Clicked="Plus_OnClicked" FontSize="40"/>
           <Label x:Name="PulseLabel" Grid.Column="1" FontSize="30" HorizontalOptions="Center" VerticalOptions="Center"/>
           <Button Grid.Column="2" Text="-" Clicked="Minus_OnClicked" FontSize="40"/>
         </Grid>

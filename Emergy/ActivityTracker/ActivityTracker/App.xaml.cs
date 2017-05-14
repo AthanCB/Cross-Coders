@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ActivityTracker.Models;
+﻿using ActivityTracker.Models;
 using Microsoft.WindowsAzure.MobileServices;
 using Xamarin.Forms;
 
