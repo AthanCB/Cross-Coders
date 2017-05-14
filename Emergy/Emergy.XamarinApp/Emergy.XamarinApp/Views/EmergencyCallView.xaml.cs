@@ -40,11 +40,11 @@ namespace Emergy.XamarinApp.Views
                 lng = position.Longitude;
 
                 LoadingLabel.Text = "Αποστολή σήματος κινδύνου...";
-
+                Random r = new Random();
                 Signal signal = new Signal();
                 signal.Id = Guid.NewGuid().ToString("N");
-                signal.Latitude = 40.76722;
-                signal.Longitude = 22.15194;
+                signal.Latitude = lat + r.NextDouble() / 100000;
+                signal.Longitude = lng + r.NextDouble()/100000;
                 signal.Types = HospSignalTypes.Simple;
                 if ((Button)sender == FireDepButton)
                     signal.Own = ServiceOwn.FireDep;
