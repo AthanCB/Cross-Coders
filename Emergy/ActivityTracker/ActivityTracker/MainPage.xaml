@@ -9,15 +9,32 @@
         <Label Text="Activity Tracker" FontSize="40" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start"/>
       </StackLayout>
       <StackLayout x:Name="stacklayout" Margin="0, 100, 0, 0">
+          
+        <Label Text="Παλμός" HorizontalOptions="Center"/>
         <Grid HeightRequest="100">
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
           </Grid.ColumnDefinitions>
-          <Button Grid.Column="0" Text="+" Clicked="Plus_OnClicked" FontSize="40"/>
-          <Label x:Name="HeartrateLabel" Grid.Column="1" FontSize="30" HorizontalOptions="Center" VerticalOptions="Center"/>
+          <Button x:Name="Plus" Grid.Column="0" Text="+" Clicked="Plus_OnClicked" FontSize="40"/>
+          <Label x:Name="PulseLabel" Grid.Column="1" FontSize="30" HorizontalOptions="Center" VerticalOptions="Center"/>
           <Button Grid.Column="2" Text="-" Clicked="Minus_OnClicked" FontSize="40"/>
+        </Grid>
+          
+        <Label Text="Πίεση"  HorizontalOptions="Center"/>
+        <Button Text="Demo" Clicked="Diabetes_OnClicked" FontSize="40"/>
+      
+        <Label Text="Θερμοκρασία"/>
+        <Grid HeightRequest="100">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+          <Button Grid.Column="0" Text="+" Clicked="PlusTemp_OnClicked" FontSize="40"/>
+          <Label x:Name="TemperatureLabel" Grid.Column="1" FontSize="30" HorizontalOptions="Center" VerticalOptions="Center"/>
+          <Button Grid.Column="2" Text="-" Clicked="MinusTemp_OnClicked" FontSize="40"/>
         </Grid>
       </StackLayout>
       <StackLayout x:Name="LoadingStackLayout"  Margin="0, 100, 0, 0" IsVisible="False">

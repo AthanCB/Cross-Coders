@@ -15,7 +15,7 @@ namespace Emergy.XamarinApp
         public IMobileServiceTable<Service> SyncServices { get; set; }
         public IMobileServiceTable<Signal> SyncSignals { get; set; }
         public IMobileServiceTable<User> SyncUsers { get; set; }
-
+        public User user;
         public App()
         {
             InitializeComponent();
@@ -28,15 +28,12 @@ namespace Emergy.XamarinApp
             SyncSignals = Client.GetTable<Signal>();
             SyncServices = Client.GetTable<Service>();
             SyncUsers = Client.GetTable<User>();
+            var list = await SyncUsers.ToCollectionAsync();
 
-            /*Signal s = new Signal
+            foreach (var i in list)
             {
-                Id = Guid.NewGuid().ToString("N"),
-                Latitude = 40.76722,
-                Longitude = 22.15194,
-                Own = ServiceOwn.FireDep
-            };
-            await SyncSignals.InsertAsync(s);*/
+                user = i;
+            }
         }
 
         protected override void OnSleep()

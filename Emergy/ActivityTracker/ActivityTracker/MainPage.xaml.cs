@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Java.Util;
 using System.Threading;
 using Java.Lang;
+using Enum = System.Enum;
 using Exception = System.Exception;
 
 namespace ActivityTracker
@@ -16,30 +17,50 @@ namespace ActivityTracker
     public partial class MainPage : ContentPage
     {
         private int Heartrate;
-        Timer timer = new Timer();
+        private int Temperature;
+
         public MainPage()
         {
             InitializeComponent();
-            timer = new Timer();
-            Heartrate = 60;
-            HeartrateLabel.Text = Heartrate.ToString();
-        }
 
-        private void Plus_OnClicked(object sender, EventArgs e)
-        {
-            Heartrate += 10;
-            HeartrateLabel.Text = Heartrate.ToString();
+            Heartrate = 60;
+            Temperature = 37;
+            PulseLabel.Text = Heartrate.ToString();
+            Temperature = 37;
+            TemperatureLabel.Text = Temperature.ToString();
         }
+        
 
         private void Minus_OnClicked(object sender, EventArgs e)
         {
             Heartrate -= 10;
-            HeartrateLabel.Text = Heartrate.ToString();
+            PulseLabel.Text = Heartrate.ToString();
             if (Heartrate < 20)
-                SendSignal();
+                SendSignal(1);
         }
-            
-        private async void SendSignal()
+
+        private void Diabetes_OnClicked(object sender, EventArgs e)
+        {
+            SendSignal(2);
+        }
+
+        private void PlusTemp_OnClicked(object sender, EventArgs e)
+        {
+            Temperature++;
+            TemperatureLabel.Text = Temperature.ToString();
+            if (Temperature > 45)
+                SendSignal(3);
+        }
+
+        private void MinusTemp_OnClicked(object sender, EventArgs e)
+        {
+            Temperature--;
+            TemperatureLabel.Text = Temperature.ToString();
+            if (Temperature < 32)
+                SendSignal(3);
+        }
+
+        private async void SendSignal(int type)
         {
             stacklayout.IsVisible = false;
             LoadingLabel.Text = "Εύρεση τοποθεσίας...";
@@ -60,6 +81,12 @@ namespace ActivityTracker
                 signal.Latitude = position.Latitude;
                 signal.Longitude = position.Longitude;
                 signal.Own = ServiceOwn.FireDep;
+               /* if(type == 1)
+                    signal.Types = HospSignalTypes.HeartPulse;
+                else if(type == 2)
+                    signal.Types = HospSignalTypes.Diabetes;
+                else
+                    signal.Types = HospSignalTypes.Fever;*/
 
                 await (Application.Current as App).SyncSignals.InsertAsync(signal);
 
@@ -77,11 +104,18 @@ namespace ActivityTracker
                 Indicator.IsVisible = false;
 
                 if (!await DisplayAlert("Αποτυχία!", "Η αποστολή σήματος κινδύνου απέτυχε! Ελέγξτε αν είναι ενεργοποιημένη η τοποθεσίας σας.", "ΟΚ", "Προσπαθήστε ξανά!"))
-                    SendSignal();
+                    SendSignal(type);
                 stacklayout.IsVisible = true;
             }
-            Heartrate = 60;
-            HeartrateLabel.Text = Heartrate.ToString();
+        }
+
+
+        private void Plus_OnClicked(object sender, EventArgs e)
+        {
+            Heartrate += 10;
+            PulseLabel.Text = Heartrate.ToString();
+            if (Heartrate > 100)
+                SendSignal(1);
         }
     }
 }

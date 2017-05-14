@@ -11,6 +11,7 @@ namespace ActivityTracker.Models
         private double _latitude;
         private double _longitude;
         private ServiceOwn _own;
+        private HospSignalTypes _types;
 
         [JsonProperty("Id")]
         public string Id
@@ -50,6 +51,16 @@ namespace ActivityTracker.Models
             {
                 _own = value;
                 OnPropertyChanged(nameof(Own));
+            }
+        }
+
+        public HospSignalTypes Types
+        {
+            get { return _types; }
+            set
+            {
+                _types = value;
+                OnPropertyChanged(nameof(Types));
             }
         }
 

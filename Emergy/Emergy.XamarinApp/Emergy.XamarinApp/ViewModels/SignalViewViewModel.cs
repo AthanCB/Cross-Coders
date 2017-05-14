@@ -1,9 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using Xamarin.Forms;
+using Microsoft.AspNet.SignalR.Client;
 
 namespace Emergy.XamarinApp.Models
 {
@@ -23,6 +25,28 @@ namespace Emergy.XamarinApp.Models
                 OnPropertyChanged(nameof(Signals));
             }
         }
+
+        private HubConnection SignalHubConnection { get; set; }
+        private IHubProxy SignalHubProxy { get; set; }
+
+
+        public SignalViewViewModel()
+        {
+            FetchData();
+            SignalHubConnection = new HubConnection("http://emergy.azurewebsites.net/");
+
+            SignalHubProxy = SignalHubConnection.CreateHubProxy("SignalHub");
+
+            SignalHubProxy.On("RefreshSignals", OnRefreshSignalsHandler);
+
+            SignalHubConnection.Start().ContinueWith(x => Debug.WriteLine("Conn done"));
+        }
+        
+        private async void OnRefreshSignalsHandler()
+        {
+            await FetchData();
+        }
+
 
         public async Task FetchData()
         {

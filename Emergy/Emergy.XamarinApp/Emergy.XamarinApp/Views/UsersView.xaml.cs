@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Emergy.XamarinApp.Models;
 using Emergy.XamarinApp.ViewModels;
 using Xamarin.Forms;
 
@@ -15,24 +16,30 @@ namespace Emergy.XamarinApp.Views
             InitializeComponent();
         }
 
-        
-
-        private void UserEntry_OnUnfocused(object sender, FocusEventArgs e)
+        protected override async void OnAppearing()
         {
-            if (!UserEntry.Text.Contains("@"))
+            await ((UserViewViewModel) BindingContext).FetchData();
+            UsersListView.ItemsSource = ((UserViewViewModel)BindingContext).Users;
+        }
+
+        private async void Search_OnClicked(object sender, EventArgs e)
+        {
+            foreach (User user in UsersListView.ItemsSource)
             {
-                UserEntry.Text = "";
-                UserEntry.Placeholder = "Μη έγκυρο e-mail";
-                UserEntry.PlaceholderColor = Color.Red;
+                if (user.Username.Equals(UserEntry.Text))
+                {
+                    if (await DisplayAlert("Προσθήκη Χρήστη", "Προσθήκη χρήστη με Username: " + user.Username + " στα αγαπημένα;", "Ναι", "Άκυρο"))
+                    {
+                        await ((UserViewViewModel)BindingContext).FetchData();
+                    }
+                }
             }
         }
 
-        private void UserEntry_OnFocused(object sender, FocusEventArgs e)
+        private void Add_OnClicked(object sender, EventArgs e)
         {
-            UserEntry.BackgroundColor = Color.Transparent;
-            UserEntry.Placeholder = "";
-            UserEntry.Text = "";
+            throw new NotImplementedException();
         }
-      }
+    }
     } 
 
