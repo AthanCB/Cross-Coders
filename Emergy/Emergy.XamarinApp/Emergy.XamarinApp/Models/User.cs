@@ -14,6 +14,7 @@ namespace Emergy.XamarinApp.Models
         private string _id;
         private string _username;
         private string _password;
+        private List<FavoriteUser> _favoriteUsers { get; set; }
         /*private string _email;
         private string _name;
         private string _surname;
@@ -48,6 +49,16 @@ namespace Emergy.XamarinApp.Models
             {
                 _password = value;
                 OnPropertyChanged(nameof(Password));
+            }
+        }
+
+        public List<FavoriteUser> FavoriteUsers
+        {
+            get { return _favoriteUsers; }
+            set
+            {
+                _favoriteUsers = value;
+                OnPropertyChanged(nameof(FavoriteUsers));
             }
         }
 

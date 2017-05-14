@@ -6,10 +6,13 @@ using Microsoft.Azure.Mobile.Server;
 
 namespace EmergyService.DataObjects
 {
-    public class User : EntityData
+    public class Service : EntityData
     {
+        public string ServiceName { get; set; }
+        public ServiceOwn Own { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public ICollection<FavoriteUser> FavoriteUsers { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     }
 }
