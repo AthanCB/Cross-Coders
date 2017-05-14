@@ -6,8 +6,8 @@
              BackgroundColor="#e2dede" Title="Emergy">
 
   <local:EmergencyCallView />
+  <local:UsersView />
   <local:FavoritesView />
-  <local:MapsView />
   
 
 

@@ -2,9 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Emergy.XamarinApp.ToggleBarView" Title="Μπάρα">
-  <ContentPage.Content>
-    <Grid x:Name="MainGrid" Padding="50">
-      
+  <ContentPage.Content >
+    <Grid VerticalOptions="Center"
+          x:Name="MainGrid"
+          Margin="20" >
+
+
+
     </Grid>
   </ContentPage.Content>
 </ContentPage>

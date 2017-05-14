@@ -24,7 +24,7 @@ namespace Emergy.XamarinApp
 
         protected async override void OnStart()
         {
-           
+            Client = new MobileServiceClient("http://emergy.azurewebsites.net/");
             SyncSignals = Client.GetTable<Signal>();
             SyncServices = Client.GetTable<Service>();
             SyncUsers = Client.GetTable<User>();

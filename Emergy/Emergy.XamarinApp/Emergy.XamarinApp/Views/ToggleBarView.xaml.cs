@@ -17,9 +17,9 @@ namespace Emergy.XamarinApp
             lv = new ListView();
             lv.ItemsSource = new string[]
             {
-                "Σήμα Κινδύνου",
-                "Το Προφίλ μου",
-                "Δημιουργία Λογαριασμού"
+"Σήμα Κινδύνου",
+"Το Προφίλ μου",
+"Δημιουργία Λογαριασμού"
             };
             MainGrid.Children.Add(lv);
         }
