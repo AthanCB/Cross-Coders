@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using ActivityTracker.Models;
 using Newtonsoft.Json;
 
 namespace ActivityTracker.Models

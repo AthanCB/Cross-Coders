@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ActivityTracker.Models;
 using Plugin.Geolocator;
 using Xamarin.Forms;
-using System.Threading;
-using Enum = System.Enum;
 using Exception = System.Exception;
 
 namespace ActivityTracker
@@ -29,7 +23,6 @@ namespace ActivityTracker
             TemperatureLabel.Text = Temperature.ToString();
         }
         
-
         private void Minus_OnClicked(object sender, EventArgs e)
         {
             Heartrate -= 10;
@@ -108,8 +101,7 @@ namespace ActivityTracker
                 stacklayout.IsVisible = true;
             }
         }
-
-
+        
         private void Plus_OnClicked(object sender, EventArgs e)
         {
             Heartrate += 10;
