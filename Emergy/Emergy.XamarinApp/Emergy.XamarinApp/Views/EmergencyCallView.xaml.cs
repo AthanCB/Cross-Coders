@@ -1,5 +1,7 @@
 ﻿using Plugin.Geolocator;
 using System;
+using System.Diagnostics;
+using Emergy.Service.WPF.Models;
 using Emergy.XamarinApp.Models;
 using Xamarin.Forms;
 
@@ -43,6 +45,7 @@ namespace Emergy.XamarinApp.Views
                 signal.Id = Guid.NewGuid().ToString("N");
                 signal.Latitude = lat;
                 signal.Longitude = lng;
+                signal.Types = HospSignalTypes.Simple;
                 if ((Button)sender == FireDepButton)
                     signal.Own = ServiceOwn.FireDep;
                 else if ((Button)sender == HospButton)
@@ -64,6 +67,7 @@ namespace Emergy.XamarinApp.Views
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.StackTrace);
                 LoadingStackLayout.IsVisible = false;
                 LoadingLabel.Text = "Παρακαλώ περιμένετε...";
                 Indicator.IsRunning = false;

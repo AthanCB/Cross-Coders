@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
 using System;
+using Emergy.Service.WPF.Models;
 
 namespace Emergy.XamarinApp.Models
 {
@@ -12,6 +13,7 @@ namespace Emergy.XamarinApp.Models
         private double _longitude;
 	    private DateTimeOffset _time;
         private ServiceOwn _own;
+        private HospSignalTypes _types;
 
         [JsonProperty("Id")]
         public string Id
@@ -61,6 +63,16 @@ namespace Emergy.XamarinApp.Models
             {
                 _own = value;
                 OnPropertyChanged(nameof(Own));
+            }
+        }
+
+        public HospSignalTypes Types
+        {
+            get { return _types; }
+            set
+            {
+                _types = value;
+                OnPropertyChanged(nameof(Types));
             }
         }
 

@@ -42,6 +42,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\FavoriteUser.cs" />
+    <Compile Include="Models\HospSignalTypes.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\ServiceOwn.cs" />
     <Compile Include="Models\Signal.cs" />

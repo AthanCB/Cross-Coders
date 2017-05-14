@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Emergy.Service.WPF.Models;
 using Newtonsoft.Json;
 
 namespace Emergy.XamarinApp.Models
@@ -12,6 +13,7 @@ namespace Emergy.XamarinApp.Models
         private string _password;
         private double _latitude;
         private double _longitude;
+        private HospSignalTypes _types;
 
         [JsonProperty("Id")]
         public string Id
@@ -73,8 +75,18 @@ namespace Emergy.XamarinApp.Models
                 OnPropertyChanged(nameof(Lognitude));
             }
         }
+        public HospSignalTypes Types
+        {
+            get { return _types; }
+            set
+            {
+                _types = value;
+                OnPropertyChanged(nameof(Types));
+            }
+        }
 
-	    public event PropertyChangedEventHandler PropertyChanged;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
 	    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
 	    {
