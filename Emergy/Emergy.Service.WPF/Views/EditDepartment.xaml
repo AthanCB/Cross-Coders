@@ -6,26 +6,36 @@
         xmlns:local="clr-namespace:Emergy.Service.WPF.Views"
         xmlns:viewModels="clr-namespace:Emergy.Service.WPF.ViewModels"
         mc:Ignorable="d"
-        Title="Επεξαργασία Μονάδας" Height="250" Width="500" WindowStartupLocation="CenterScreen">
+        Title="EditService" Width="300" Height="250" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewModels:ServiceViewViewModel/>
     </Window.DataContext>
     <Grid>
-        <Label x:Name="DepartmentInfo"/>
-        <DockPanel Grid.Row="0" Name="DockPanelMenu"  LastChildFill="False">
-            <Menu BorderBrush="Black" BorderThickness="1" Height="auto" Name="Menu" DockPanel.Dock="Top"  Background="{DynamicResource MaterialDesignBody}"  >
-                <MenuItem Header="Πίσω" x:Name="BackButton" Foreground="#DDFFFFFF" FontSize="12" Click="BackButton_OnClick"/>
-            </Menu>
-        </DockPanel>
-        <ListView Name="ProductListView" Margin="0,50,-0.4,50.4" ItemsSource="{Binding }" >
-            <ListView.View>
-                <GridView AllowsColumnReorder="True" >
-                    <GridViewColumn Header="Όνομα Τοποθεσίας" x:Name="LocationName" Width="200" DisplayMemberBinding="{Binding Location}" />
-                    <GridViewColumn Header="ID" x:Name="Id" Width="100" DisplayMemberBinding="{Binding }" />
-                    <GridViewColumn Header="Τοποθεσία" x:Name="Location" Width="200" DisplayMemberBinding="{Binding }" />
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Button x:Name="Submit" Content="ΕΠΙΒΕΒΑΙΩΣΗ" Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="Submit_OnClick" Margin="187,0,186.6,12.4" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.DataContext>
+            <viewModels:ServiceViewViewModel/>
+        </Grid.DataContext>
+        <Label Grid.Row="0" Content="Συμπληρώστε τα νέα στοιχεία της υπηρεσίας" HorizontalAlignment="Center"/>
+
+        <Label Name="QuestionX" Grid.Row="1" Content="Πλάτος: "/>
+        <TextBox Name="TextAnswerX" Grid.Row="1" Width="200" HorizontalAlignment="Right"/>
+
+        <Label Name="QuestionY" Grid.Row="2" Content="Μήκος: "/>
+        <TextBox Name="TextAnswerY" Grid.Row="2" Width="200" HorizontalAlignment="Right"/>
+
+        <Label Name="QuestionId" Grid.Row="3" Content="ID: "/>
+        <TextBox Name="TextAnswerId" Grid.Row="3" Width="200" HorizontalAlignment="Right"/>
+
+        <Label Name="QuestionName" Grid.Row="4" Content="Όνομα: "/>
+        <TextBox Name="TextAnswerName" Grid.Row="4" Width="200" HorizontalAlignment="Right"/>
+
+        <Button Grid.Row="5" Content="OK" Name="DialogOk" Click="BtnDialogOk_OnClicklogOk_Click" Width="50" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

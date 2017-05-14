@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace Emergy.Service.WPF.Views
 {
@@ -24,15 +12,10 @@ namespace Emergy.Service.WPF.Views
 			InitializeComponent();
 		}
 
-		private void BackButton_OnClick(object sender, RoutedEventArgs e)
+		private void BtnDialogOk_OnClicklogOk_Click(object sender, RoutedEventArgs e)
 		{
-			this.Close();			
+			this.Close();
 		}
-
-		private void Submit_OnClick(object sender, RoutedEventArgs e)
-		{
-			//if()
-				this.Close();
-		}
+		
 	}
 }

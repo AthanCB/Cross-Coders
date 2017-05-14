@@ -44,6 +44,13 @@ namespace Emergy.Service.WPF.Views
 			this.Close();
 		}
 
+		private void EditDepartment_OnClickditDepartment_OnClick(object sender, RoutedEventArgs e)
+		{
+			EditDepartment editDepartment = new EditDepartment();
+			editDepartment.Show();
+			//this.Close();
+		}
+
 		private void Accidents_OnClick(object sender, RoutedEventArgs e)
 		{
 			AccidentButton.IsCheckable = true;
@@ -62,13 +69,6 @@ namespace Emergy.Service.WPF.Views
 			MapButton.IsCheckable= true;
 			AccidentsList.Visibility = Visibility.Hidden;
 			Map.Visibility = Visibility.Visible;
-		}
-
-		private void RefresButton_OnClick(object sender, RoutedEventArgs e)
-		{			
-			SignalView signalView = new SignalView();
-			signalView.Show();
-			this.Hide();
 		}
 
 		private async void DeleteAllSignals_OnClick(object sender, RoutedEventArgs e)
@@ -96,14 +96,7 @@ namespace Emergy.Service.WPF.Views
 				await(Application.Current as App).SyncSignals.DeleteAsync(tempSignal);
 				((SignalViewViewModel) this.DataContext).Signals.Remove(tempSignal);
 			}
-		}
-
-		private void EditDepartment_OnClick(object sender, RoutedEventArgs e)
-		{
-			//this.Close();
-			EditDepartment ed= new EditDepartment();
-			ed.Show();				
-		}
+		}		
 
 		event PropertyChangedEventHandler INotifyPropertyChanged.PropertyChanged
 		{
@@ -119,7 +112,7 @@ namespace Emergy.Service.WPF.Views
 
 		private void FindAccidentLocation(object sender, MouseButtonEventArgs e)
 		{
-			Location location = ((Pushpin)sender).Location;
+			Location location =  ((Signal)sender).Location;
 			var result = MessageBox.Show("Τοποθεσία συμβάντος: "+ location, "Εύρεση τοποθεσίας",
 				MessageBoxButton.OK, MessageBoxImage.Information);
 		}
