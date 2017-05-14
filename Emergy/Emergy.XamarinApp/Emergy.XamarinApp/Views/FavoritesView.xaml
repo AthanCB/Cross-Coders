@@ -8,7 +8,7 @@
     <vm:UserViewViewModel/>
   </ContentPage.BindingContext>
   <ContentPage.Content>
-    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="20" >
       <ListView ItemsSource="{Binding Users}">
         <ListView.ItemTemplate>
           <DataTemplate>
@@ -16,13 +16,6 @@
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
-      <Label Text="Όνομα" TextColor="Black"/>
-      <Entry x:Name="NameEntry"/>
-      <Label Text="Επίθετο" TextColor="Black"/>
-      <Entry x:Name="SurNameEntry"/>
-      <Label Text="E-mail" TextColor="Black"/>
-      <Entry x:Name="UsernameEntry" Unfocused="UsernameEntry_OnUnfocused" Focused="UsernameEntry_OnFocused"/>
-      <Button Text="Πρόσθεσε"/>
     </StackLayout>
     </ContentPage.Content>
 </ContentPage>

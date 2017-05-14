@@ -11,10 +11,10 @@
           <Setter Property="FontSize" Value="25"></Setter>
           <Setter Property="TextColor" Value="White"></Setter>
           <Setter Property="BackgroundColor" Value="Red"></Setter>
-
+          <Setter Property="BorderRadius" Value="10"></Setter>
         </Style>
         <Style TargetType="Label">
-          <Setter Property="FontSize" Value="25"></Setter>
+          <Setter Property="FontSize" Value="19"></Setter>
         </Style>
       </ResourceDictionary>
     

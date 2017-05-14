@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Emergy.XamarinApp.Views.UsersView"
+             BackgroundColor="#e2dede" Title="Χρηστες" Icon="ic_group_black_24dp.png">
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+      <Label Text="Αναζήτηση Χρήστη" TextColor="Black"/>
+      <Entry x:Name="UserEntry" />
+      <Button Text="Πρόσθεσε"/>
+      </StackLayout>
+    
+  </ContentPage.Content>
+  
+</ContentPage>
