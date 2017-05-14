@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Emergy.XamarinApp.ViewModels;
 using Xamarin.Forms;
 
 namespace Emergy.XamarinApp.Views
@@ -14,7 +14,10 @@ namespace Emergy.XamarinApp.Views
         {
             InitializeComponent();
         }
-private void UserEntry_OnUnfocused(object sender, FocusEventArgs e)
+
+        
+
+        private void UserEntry_OnUnfocused(object sender, FocusEventArgs e)
         {
             if (!UserEntry.Text.Contains("@"))
             {
