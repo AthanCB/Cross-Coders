@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Emergy.Service.WPF.Models;
 using Newtonsoft.Json;
 
 namespace Emergy.XamarinApp.Models
