@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
+using System;
 
 namespace Emergy.XamarinApp.Models
 {
@@ -9,6 +10,7 @@ namespace Emergy.XamarinApp.Models
         private string _id;
         private double _latitude;
         private double _longitude;
+	    private DateTimeOffset _time;
         private ServiceOwn _own;
 
         [JsonProperty("Id")]
@@ -21,6 +23,16 @@ namespace Emergy.XamarinApp.Models
                 OnPropertyChanged(nameof(Id));
             }
         }
+
+	    public DateTimeOffset Time
+	    {
+			get { return _time; }
+		    set
+		    {
+			    _time = value;
+			    OnPropertyChanged(nameof(Time));
+		    }
+	    }
 
         public double Latitude
         {

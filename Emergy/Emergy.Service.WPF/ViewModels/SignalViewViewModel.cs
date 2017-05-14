@@ -66,10 +66,11 @@ namespace Emergy.Service.WPF.ViewModels
 	        {
 				Location location = new Location(latitude:signal.Latitude,longitude:signal.Longitude);
 		        signal.Location = location;
+		        DateTimeOffset time = signal.Time;
+		        signal.Time = time;
 	        }
         }
-
-
+		
 	    public event PropertyChangedEventHandler PropertyChanged;
 
 	    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

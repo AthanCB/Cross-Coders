@@ -17,8 +17,10 @@ namespace Emergy.Service.WPF.Models
         private string _id;
         private double _latitude;
         private double _longitude;
-	    //private Point p;
 	    private Location _location;
+	    private HospSignalTypes _types;
+
+	    private DateTimeOffset _time;
 
         private ServiceOwn _own;
 
@@ -32,6 +34,16 @@ namespace Emergy.Service.WPF.Models
                 OnPropertyChanged(nameof(Id));
             }
         }
+
+	    public DateTimeOffset Time
+	    {
+			get { return _time; }
+		    set
+		    {
+			    _time = value;
+			    OnPropertyChanged(nameof(Time));
+		    }
+		}
 
 	    public Location Location
 	    {
@@ -73,8 +85,18 @@ namespace Emergy.Service.WPF.Models
             }
         }
 
+	    public HospSignalTypes Types
+	    {
+		    get { return _types; }
+		    set
+		    {
+			    _types = value;
+			    OnPropertyChanged(nameof(Types));
+		    }
+	    }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+
+		public event PropertyChangedEventHandler PropertyChanged;
 
 	    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
 	    {

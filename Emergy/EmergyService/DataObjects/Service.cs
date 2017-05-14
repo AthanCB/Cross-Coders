@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Emergy.Service.WPF.Models;
 using Microsoft.Azure.Mobile.Server;
 
 namespace EmergyService.DataObjects
@@ -10,6 +11,7 @@ namespace EmergyService.DataObjects
     {
         public string ServiceName { get; set; }
         public ServiceOwn Own { get; set; }
+		public HospSignalTypes Types { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public double Latitude { get; set; }
