@@ -30,7 +30,7 @@
         </Grid>
         <Grid>
             <DockPanel Name="DockPanelMenu" LastChildFill="False" >
-                <Menu BorderBrush="Black" BorderThickness="1" Height="auto" Name="Menu" DockPanel.Dock="Top"  Background="{DynamicResource MaterialDesignBody}">
+                <Menu BorderBrush="Black" BorderThickness="1" Height="auto" Name="Menu" DockPanel.Dock="Top"  Background="{DynamicResource MaterialDesignBody}" Margin="0,0,-1.4,0">
                     <Menu.ItemsPanel>
                         <ItemsPanelTemplate>
                             <DockPanel HorizontalAlignment="Stretch"/>
@@ -44,7 +44,7 @@
                 </Menu>
             </DockPanel>
         </Grid>
-        <Grid x:Name="AccidentsList" Visibility="Hidden">
+        <Grid x:Name="AccidentsList" Visibility="Hidden" Margin="0,50,-0.4,0.4">
             <ListView x:Name="AccidentListView" HorizontalAlignment="Left" Width="Auto" Height="Auto" VerticalAlignment="Top" ItemsSource="{Binding Signals}" Margin="0,50,0,0">
                 <ListView.ContextMenu>
                     <ContextMenu>
@@ -54,9 +54,9 @@
                 </ListView.ContextMenu>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn x:Name="SignalCode" Header="Κωδικός Σήματος" DisplayMemberBinding="{Binding Id}" Width="Auto"/>
-                        <GridViewColumn x:Name="Latitude" Header="Γεωγραφικό Πλάτος" DisplayMemberBinding="{Binding Latitude}" Width="Auto"/>
-                        <GridViewColumn x:Name="Longtitude" Header="Γεωγραφικό Μήκος" DisplayMemberBinding="{Binding Longitude}" Width="Auto"/>
+                        <GridViewColumn x:Name="SignalCode" Width="300" Header="Κωδικός Σήματος" DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn x:Name="Latitude" Header="Γεωγραφικό Πλάτος" DisplayMemberBinding="{Binding Latitude}" Width="300"/>
+                        <GridViewColumn x:Name="Longtitude" Header="Γεωγραφικό Μήκος" DisplayMemberBinding="{Binding Longitude}" Width="300"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -84,7 +84,7 @@
                 </Grid>
             </m:Map>
         </Grid>
-        <Button x:Name="EditDepartment" Width="60" Height="44" Foreground="Black" Background="Transparent" VerticalAlignment="Top" FontSize="20" Click="EditDepartment_OnClickditDepartment_OnClick" HorizontalAlignment="Left" Margin="15,53,0,0">
+        <Button x:Name="EditDepartment" ToolTip="Επεξεργασία Στοιχείων της Μονάδας!" Width="60" Height="44" Foreground="Black" Background="Transparent" VerticalAlignment="Top" FontSize="20" Click="EditDepartment_OnClickditDepartment_OnClick" HorizontalAlignment="Left" Margin="15,53,0,0">
             <StackPanel>
                 <Image Source="C:\Users\GeorgiosDimopoulos\Documents\GitHub\Cross-Coders\Emergy\Emergy.Service.WPF\Views\61456.png" Width="33" HorizontalAlignment="Center"/>
             </StackPanel>
