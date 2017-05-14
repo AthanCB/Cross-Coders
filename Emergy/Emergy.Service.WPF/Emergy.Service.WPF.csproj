@@ -95,6 +95,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\ServiceOwn.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="ViewModels\ServiceViewViewModel.cs" />
     <Compile Include="ViewModels\SignalViewViewModel.cs" />
     <Compile Include="Views\EditDepartment.xaml.cs">
       <DependentUpon>EditDepartment.xaml</DependentUpon>

@@ -24,19 +24,19 @@ namespace Emergy.XamarinApp
 
         protected async override void OnStart()
         {
-            Client = new MobileServiceClient("http://localhost:51800/");
            
             SyncSignals = Client.GetTable<Signal>();
             SyncServices = Client.GetTable<Service>();
             SyncUsers = Client.GetTable<User>();
-            Signal s = new Signal
+
+            /*Signal s = new Signal
             {
                 Id = Guid.NewGuid().ToString("N"),
-                Latitude = 23.33323,
-                Longitude = 32.32323,
+                Latitude = 40.76722,
+                Longitude = 22.15194,
                 Own = ServiceOwn.FireDep
             };
-            await SyncSignals.InsertAsync(s);
+            await SyncSignals.InsertAsync(s);*/
         }
 
         protected override void OnSleep()

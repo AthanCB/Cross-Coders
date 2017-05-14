@@ -154,10 +154,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Startup.MobileApp.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\SignalController.cs" />
     <Compile Include="Controllers\TodoItemController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataObjects\Service.cs" />
     <Compile Include="DataObjects\ServiceOwn.cs" />
@@ -172,8 +172,10 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\Emergy - FTP %284%29.pubxml" />
     <None Include="Properties\PublishProfiles\Emergy - FTP %285%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Emergy - FTP %286%29.pubxml" />
     <None Include="Properties\PublishProfiles\Emergy - Web Deploy %284%29.pubxml" />
     <None Include="Properties\PublishProfiles\Emergy - Web Deploy %285%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Emergy - Web Deploy %286%29.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />

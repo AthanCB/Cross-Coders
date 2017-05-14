@@ -19,12 +19,16 @@ namespace Emergy.Service.WPF
         public MobileServiceClient Client { get; set; }
         public IMobileServiceTable<Models.Service> SyncServices { get; set; }
         public IMobileServiceTable<Signal> SyncSignals { get; set; }
+        public IMobileServiceTable<User> SyncUsers { get; set; }
 
-        protected override void OnStartup(StartupEventArgs e)
+        protected async override void OnStartup(StartupEventArgs e)
         {
-            Client = new MobileServiceClient("http://emergy.azurewebsites.net");
+            Client = new MobileServiceClient("http://emergy.azurewebsites.net/");
 
             SyncSignals = Client.GetTable<Signal>();
+            SyncUsers = Client.GetTable<User>();
+            SyncServices = Client.GetTable<Models.Service>();
+            var lst = await SyncUsers.ToCollectionAsync();
         }
     }
 }

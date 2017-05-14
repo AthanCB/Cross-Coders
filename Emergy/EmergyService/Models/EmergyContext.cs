@@ -26,7 +26,6 @@ namespace EmergyService.Models
         public DbSet<Signal> Signals { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<User> Users { get; set; }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Add(

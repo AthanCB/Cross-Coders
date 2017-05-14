@@ -7,14 +7,14 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Emergy.XamarinApp.Models
+namespace Emergy.Service.WPF.Models
 {
     public class User : INotifyPropertyChanged
     {
         private string _id;
         private string _username;
         private string _password;
-        /*private string _email;
+       /* private string _email;
         private string _name;
         private string _surname;
         private int _age;
@@ -51,7 +51,7 @@ namespace Emergy.XamarinApp.Models
             }
         }
 
-        /*public string Email
+       /* public string Email
         {
             get { return _email; }
             set

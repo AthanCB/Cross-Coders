@@ -41,7 +41,7 @@ namespace Emergy.Service.WPF.ViewModels
         public SignalViewViewModel()
         {
             FetchData();
-            SignalHubConnection = new HubConnection("http://emergy.azurewebsites.net");
+            SignalHubConnection = new HubConnection("http://emergy.azurewebsites.net/");
 
             SignalHubProxy = SignalHubConnection.CreateHubProxy("SignalHub");
 
