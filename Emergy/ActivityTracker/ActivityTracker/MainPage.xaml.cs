@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ActivityTracker.Models;
 using Plugin.Geolocator;
 using Xamarin.Forms;
-using Java.Util;
 using System.Threading;
-using Java.Lang;
 using Enum = System.Enum;
 using Exception = System.Exception;
 
@@ -81,12 +80,12 @@ namespace ActivityTracker
                 signal.Latitude = position.Latitude;
                 signal.Longitude = position.Longitude;
                 signal.Own = ServiceOwn.FireDep;
-               /* if(type == 1)
+                if(type == 1)
                     signal.Types = HospSignalTypes.HeartPulse;
                 else if(type == 2)
                     signal.Types = HospSignalTypes.Diabetes;
                 else
-                    signal.Types = HospSignalTypes.Fever;*/
+                    signal.Types = HospSignalTypes.Fever;
 
                 await (Application.Current as App).SyncSignals.InsertAsync(signal);
 
@@ -99,6 +98,7 @@ namespace ActivityTracker
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.StackTrace);
                 LoadingStackLayout.IsVisible = false;
                 Indicator.IsRunning = false;
                 Indicator.IsVisible = false;
