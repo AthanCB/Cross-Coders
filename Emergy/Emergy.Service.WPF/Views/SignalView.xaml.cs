@@ -110,9 +110,10 @@ namespace Emergy.Service.WPF.Views
 			}
 		}
 
+
 		private void FindAccidentLocation(object sender, MouseButtonEventArgs e)
 		{
-			Location location =  ((Signal)sender).Location;
+			Location location = ((Signal) ((Pushpin) sender).DataContext).Location;
 			var result = MessageBox.Show("Τοποθεσία συμβάντος: "+ location, "Εύρεση τοποθεσίας",
 				MessageBoxButton.OK, MessageBoxImage.Information);
 		}
