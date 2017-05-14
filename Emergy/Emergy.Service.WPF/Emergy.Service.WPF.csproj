@@ -94,6 +94,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\HospSignalTypes.cs" />
     <Compile Include="Models\ServiceOwn.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="ViewModels\ServiceViewViewModel.cs" />

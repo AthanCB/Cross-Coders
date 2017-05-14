@@ -160,6 +160,7 @@
     <Compile Include="Controllers\TodoItemController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataObjects\FavoriteUser.cs" />
+    <Compile Include="DataObjects\HospSignalTypes.cs" />
     <Compile Include="DataObjects\Service.cs" />
     <Compile Include="DataObjects\ServiceOwn.cs" />
     <Compile Include="DataObjects\Signal.cs" />
